@@ -1,0 +1,1265 @@
+2024-10-17 15:09:05.738577: 开始打包项目...
+2024-10-17 15:26:01: 开始打包项目...
+2025-01-10 10:20:21: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:20:21: Authentication (password) successful!
+2025-01-10 10:20:38: 开始打包项目...
+2025-01-10 10:20:38: 执行命令: npm run build
+2025-01-10 10:20:40: 
+2025-01-10 10:20:40: > vue-admin-template@1.0.0 build
+2025-01-10 10:20:40: > set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build
+2025-01-10 10:20:40: 
+2025-01-10 10:20:41: 
+2025-01-10 10:20:54: WARNING  Compiled with 4 warnings10:20:54
+2025-01-10 10:20:54: 
+2025-01-10 10:20:54: warning  in ./src/components/user/UserProfile.vue?vue&type=script&lang=js
+2025-01-10 10:20:54: 
+2025-01-10 10:20:54: "export 'updatePassword' was not found in '@/api/user.js'
+2025-01-10 10:20:54: 
+2025-01-10 10:20:54: warning  in ./src/components/user/UserProfile.vue?vue&type=script&lang=js
+2025-01-10 10:20:54: 
+2025-01-10 10:20:54: "export 'updateUserInfo' (imported as '_updateUserInfo') was not found in '@/api/user.js'
+2025-01-10 10:20:54: 
+2025-01-10 10:20:54: warning
+2025-01-10 10:20:54: 
+2025-01-10 10:20:54: asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+2025-01-10 10:20:54: This can impact web performance.
+2025-01-10 10:20:54: Assets:
+2025-01-10 10:20:54: img/contact_non_selected@2x.a04d1532.png (303 KiB)
+2025-01-10 10:20:54: img/ionicons.a2c4a261.svg (542 KiB)
+2025-01-10 10:20:54: js/npm.codemirror.f7e1334d.js (377 KiB)
+2025-01-10 10:20:54: js/npm.emoji-mart-vue.1b57e5da.js (539 KiB)
+2025-01-10 10:20:54: css/npm.view-design.94bf04de.css (278 KiB)
+2025-01-10 10:20:54: js/npm.view-design.ad5ecf3e.js (643 KiB)
+2025-01-10 10:20:54: js/npm.vue-meditor.f356bf71.js (676 KiB)
+2025-01-10 10:20:54: 
+2025-01-10 10:20:54: warning
+2025-01-10 10:20:54: 
+2025-01-10 10:20:54: entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+2025-01-10 10:20:54: Entrypoints:
+2025-01-10 10:20:54: app (1.48 MiB)
+2025-01-10 10:20:54: js/runtime.6012c0bb.js
+2025-01-10 10:20:54: js/npm.core-js.19b3d73e.js
+2025-01-10 10:20:54: js/npm.babel.edbbbf4b.js
+2025-01-10 10:20:54: js/npm.axios.c331af1c.js
+2025-01-10 10:20:54: css/npm.view-design.94bf04de.css
+2025-01-10 10:20:54: js/npm.view-design.ad5ecf3e.js
+2025-01-10 10:20:54: css/npm.viewerjs.c6c0888f.css
+2025-01-10 10:20:54: js/npm.viewerjs.450bf54f.js
+2025-01-10 10:20:54: js/npm.formkit.c5a5d6cb.js
+2025-01-10 10:20:54: css/npm.element-ui.636ec213.css
+2025-01-10 10:20:54: js/npm.element-ui.29df6b7d.js
+2025-01-10 10:20:54: js/npm.v-viewer.7e9cfbac.js
+2025-01-10 10:20:54: js/npm.vue-router.17a46785.js
+2025-01-10 10:20:54: js/npm.vue.92b49f75.js
+2025-01-10 10:20:54: js/npm.vuex.132b34e2.js
+2025-01-10 10:20:54: css/app.d4bb0102.css
+2025-01-10 10:20:54: js/app.860f46de.js
+2025-01-10 10:20:54: 
+2025-01-10 10:20:54: 
+2025-01-10 10:20:54: File                                      Size             Gzipped
+2025-01-10 10:20:54: 
+2025-01-10 10:20:54: dist\js\npm.vue-meditor.f356bf71.js       675.65 KiB       218.80 KiB
+2025-01-10 10:20:54: dist\js\npm.view-design.ad5ecf3e.js       642.72 KiB       146.21 KiB
+2025-01-10 10:20:54: dist\js\npm.emoji-mart-vue.1b57e5da.js    539.04 KiB       92.74 KiB
+2025-01-10 10:20:54: dist\js\npm.codemirror.f7e1334d.js        376.62 KiB       116.27 KiB
+2025-01-10 10:20:54: dist\js\npm.core-js.19b3d73e.js           121.39 KiB       41.79 KiB
+2025-01-10 10:20:54: dist\js\npm.vue-cropper.78b76695.js       110.38 KiB       26.05 KiB
+2025-01-10 10:20:54: dist\js\npm.vue.92b49f75.js               77.47 KiB        27.30 KiB
+2025-01-10 10:20:54: dist\js\npm.vcrontab.baae75be.js          58.31 KiB        13.86 KiB
+2025-01-10 10:20:54: dist\js\npm.jsencrypt.b6ed0d7f.js         56.18 KiB        17.09 KiB
+2025-01-10 10:20:54: dist\js\npm.riophae.54a3450b.js           55.08 KiB        14.74 KiB
+2025-01-10 10:20:54: dist\js\npm.sortablejs.d55ed06d.js        42.86 KiB        14.12 KiB
+2025-01-10 10:20:54: dist\js\npm.viewerjs.450bf54f.js          38.25 KiB        11.85 KiB
+2025-01-10 10:20:54: dist\js\chunk-66750f26.f83a8223.js        37.98 KiB        11.52 KiB
+2025-01-10 10:20:54: dist\js\npm.lrz.553eefa4.js               33.98 KiB        12.88 KiB
+2025-01-10 10:20:54: dist\js\chunk-7d8eb554.967367af.js        32.54 KiB        10.77 KiB
+2025-01-10 10:20:54: dist\js\chunk-53a06c54.3410c43d.js        29.05 KiB        10.83 KiB
+2025-01-10 10:20:54: dist\js\npm.vue-router.17a46785.js        28.98 KiB        9.96 KiB
+2025-01-10 10:20:54: dist\js\chunk-7b2a5ea2.97265b67.js        27.68 KiB        8.88 KiB
+2025-01-10 10:20:54: dist\js\npm.vuedraggable.ebcc8de0.js      27.17 KiB        9.86 KiB
+2025-01-10 10:20:54: dist\js\chunk-8e55bec4.0d4df359.js        26.38 KiB        12.77 KiB
+2025-01-10 10:20:54: dist\js\chunk-500ae6c9.7f0df2ad.js        21.73 KiB        6.42 KiB
+2025-01-10 10:20:54: dist\js\npm.vue-select.5e04d683.js        20.73 KiB        6.37 KiB
+2025-01-10 10:20:54: dist\js\app.860f46de.js                   18.51 KiB        6.40 KiB
+2025-01-10 10:20:54: dist\js\chunk-9225c0fe.20837bb5.js        17.64 KiB        4.56 KiB
+2025-01-10 10:20:54: dist\js\npm.babel.edbbbf4b.js             16.28 KiB        4.54 KiB
+2025-01-10 10:20:54: dist\js\chunk-f5f55cfc.f9ee1e3d.js        15.74 KiB        5.19 KiB
+2025-01-10 10:20:54: dist\js\chunk-6efd9400.90595ef0.js        15.39 KiB        4.61 KiB
+2025-01-10 10:20:54: dist\js\chunk-271bdb58.b7ff0d2f.js        14.52 KiB        4.73 KiB
+2025-01-10 10:20:54: dist\js\npm.axios.c331af1c.js             13.76 KiB        4.70 KiB
+2025-01-10 10:20:54: dist\js\chunk-1a287f16.136088a8.js        12.91 KiB        4.03 KiB
+2025-01-10 10:20:54: dist\js\npm.vuex.132b34e2.js              12.46 KiB        3.90 KiB
+2025-01-10 10:20:54: dist\js\npm.v-viewer.7e9cfbac.js          12.05 KiB        5.00 KiB
+2025-01-10 10:20:54: dist\js\chunk-6bd9f911.3eaf2810.js        7.43 KiB         2.88 KiB
+2025-01-10 10:20:54: dist\js\npm.formkit.c5a5d6cb.js           7.24 KiB         2.93 KiB
+2025-01-10 10:20:54: dist\js\runtime.6012c0bb.js               6.11 KiB         2.36 KiB
+2025-01-10 10:20:54: dist\js\chunk-63bb8f9b.95e5411d.js        5.80 KiB         2.33 KiB
+2025-01-10 10:20:54: dist\js\chunk-0d8910d0.ba5a9a2e.js        5.37 KiB         2.21 KiB
+2025-01-10 10:20:54: dist\js\chunk-52d0ee5e.65ee2be0.js        4.91 KiB         2.12 KiB
+2025-01-10 10:20:54: dist\js\chunk-1e29fbdf.d801dd23.js        4.67 KiB         1.84 KiB
+2025-01-10 10:20:54: dist\js\chunk-1b907296.8263864c.js        4.53 KiB         1.70 KiB
+2025-01-10 10:20:54: dist\js\chunk-2d0aba9c.6440e68b.js        3.91 KiB         0.73 KiB
+2025-01-10 10:20:54: dist\js\chunk-cbd27c42.0cf9e2cf.js        1.95 KiB         1.06 KiB
+2025-01-10 10:20:54: dist\js\chunk-b32710d4.dd70b74a.js        1.68 KiB         0.95 KiB
+2025-01-10 10:20:54: dist\js\chunk-a9848d9c.26cb9465.js        0.70 KiB         0.49 KiB
+2025-01-10 10:20:54: dist\js\chunk-2d0c1074.3e72f48a.js        0.47 KiB         0.35 KiB
+2025-01-10 10:20:54: dist\js\chunk-2d0cc798.ea0af5f6.js        0.45 KiB         0.34 KiB
+2025-01-10 10:20:54: dist\js\chunk-2d0e13a4.d53c46ab.js        0.45 KiB         0.34 KiB
+2025-01-10 10:20:54: dist\js\npm.element-ui.29df6b7d.js        0.15 KiB         0.14 KiB
+2025-01-10 10:20:54: dist\css\npm.view-design.94bf04de.css     277.93 KiB       39.35 KiB
+2025-01-10 10:20:54: dist\css\npm.element-ui.636ec213.css      235.73 KiB       35.78 KiB
+2025-01-10 10:20:54: dist\css\chunk-271bdb58.ce4e8712.css      28.48 KiB        3.99 KiB
+2025-01-10 10:20:54: dist\css\npm.riophae.84f98409.css         26.10 KiB        4.86 KiB
+2025-01-10 10:20:54: dist\css\chunk-9225c0fe.b5a23984.css      23.06 KiB        3.79 KiB
+2025-01-10 10:20:54: dist\css\chunk-7d8eb554.95a219bc.css      18.33 KiB        3.61 KiB
+2025-01-10 10:20:54: dist\css\chunk-7b2a5ea2.7f65c4cb.css      15.62 KiB        2.77 KiB
+2025-01-10 10:20:54: dist\css\chunk-66750f26.48fc8e76.css      12.14 KiB        2.34 KiB
+2025-01-10 10:20:54: dist\css\chunk-6efd9400.27de8b81.css      11.81 KiB        2.10 KiB
+2025-01-10 10:20:54: dist\css\chunk-500ae6c9.10b0706e.css      11.35 KiB        2.30 KiB
+2025-01-10 10:20:54: dist\css\npm.codemirror.d1fc7e1b.css      11.07 KiB        3.14 KiB
+2025-01-10 10:20:54: dist\css\npm.vue-select.56c41540.css      8.97 KiB         1.91 KiB
+2025-01-10 10:20:55: dist\css\npm.viewerjs.c6c0888f.css        8.02 KiB         3.01 KiB
+2025-01-10 10:20:55: dist\css\chunk-8e55bec4.bab537f8.css      5.77 KiB         1.41 KiB
+2025-01-10 10:20:55: dist\css\chunk-1a287f16.9cd8f9c3.css      5.31 KiB         1.30 KiB
+2025-01-10 10:20:55: dist\css\chunk-6bd9f911.52a4fb81.css      3.71 KiB         0.98 KiB
+2025-01-10 10:20:55: dist\css\app.d4bb0102.css                 2.11 KiB         0.68 KiB
+2025-01-10 10:20:55: dist\css\chunk-1b907296.8d0badf6.css      1.88 KiB         0.53 KiB
+2025-01-10 10:20:55: dist\css\chunk-f5f55cfc.c8af307f.css      1.31 KiB         0.44 KiB
+2025-01-10 10:20:55: dist\css\chunk-b32710d4.9d70471b.css      0.71 KiB         0.33 KiB
+2025-01-10 10:20:55: dist\css\chunk-1e29fbdf.53ed46be.css      0.49 KiB         0.28 KiB
+2025-01-10 10:20:55: dist\css\chunk-a9848d9c.df55b327.css      0.32 KiB         0.21 KiB
+2025-01-10 10:20:55: dist\css\chunk-cbd27c42.473b315b.css      0.14 KiB         0.11 KiB
+2025-01-10 10:20:55: dist\css\chunk-0d8910d0.f132fa11.css      0.11 KiB         0.12 KiB
+2025-01-10 10:20:55: dist\css\chunk-52d0ee5e.80407536.css      0.11 KiB         0.12 KiB
+2025-01-10 10:20:55: 
+2025-01-10 10:20:55: Images and other types of assets omitted.
+2025-01-10 10:20:55: 
+2025-01-10 10:20:55: DONE  Build complete. The dist directory is ready to be deployed.
+2025-01-10 10:20:55: INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
+2025-01-10 10:20:55: 
+2025-01-10 10:20:55: 开始压缩打包文件...
+2025-01-10 10:20:56: 压缩完成。
+2025-01-10 10:20:56: 开始上传包到服务器...
+2025-01-10 10:20:56: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:20:56: Authentication (password) successful!
+2025-01-10 10:20:56: [chan 0] Opened sftp connection (server version 3)
+2025-01-10 10:21:04: [chan 0] sftp session closed.
+2025-01-10 10:21:04: 上传成功。
+2025-01-10 10:21:04: 开始备份现有项目...
+2025-01-10 10:21:04: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:21:04: Authentication (password) successful!
+2025-01-10 10:21:04: 备份成功。
+2025-01-10 10:21:04: 开始在服务器上解压和重命名...
+2025-01-10 10:21:04: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:21:05: Authentication (password) successful!
+2025-01-10 10:21:05: 部署完成
+2025-01-10 10:21:05: 解压和重命名成功。
+2025-01-10 10:21:05: 解压和重命名成功。
+2025-01-10 10:21:05: 项目部署完成！
+2025-01-10 10:21:48: 开始打包项目...
+2025-01-10 10:21:48: 执行命令: npm run build
+2025-01-10 10:21:51: 
+2025-01-10 10:21:51: > vue-admin-template@1.0.0 build
+2025-01-10 10:21:51: > set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build
+2025-01-10 10:21:51: 
+2025-01-10 10:21:52: 
+2025-01-10 10:22:06: WARNING  Compiled with 4 warnings10:22:06
+2025-01-10 10:22:06: 
+2025-01-10 10:22:07: warning  in ./src/components/user/UserProfile.vue?vue&type=script&lang=js
+2025-01-10 10:22:07: 
+2025-01-10 10:22:07: "export 'updatePassword' was not found in '@/api/user.js'
+2025-01-10 10:22:07: 
+2025-01-10 10:22:07: warning  in ./src/components/user/UserProfile.vue?vue&type=script&lang=js
+2025-01-10 10:22:07: 
+2025-01-10 10:22:07: "export 'updateUserInfo' (imported as '_updateUserInfo') was not found in '@/api/user.js'
+2025-01-10 10:22:07: 
+2025-01-10 10:22:07: warning
+2025-01-10 10:22:07: 
+2025-01-10 10:22:07: asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+2025-01-10 10:22:07: This can impact web performance.
+2025-01-10 10:22:07: Assets:
+2025-01-10 10:22:07: img/contact_non_selected@2x.a04d1532.png (303 KiB)
+2025-01-10 10:22:07: img/ionicons.a2c4a261.svg (542 KiB)
+2025-01-10 10:22:07: js/npm.codemirror.f7e1334d.js (377 KiB)
+2025-01-10 10:22:07: js/npm.emoji-mart-vue.1b57e5da.js (539 KiB)
+2025-01-10 10:22:07: css/npm.view-design.94bf04de.css (278 KiB)
+2025-01-10 10:22:07: js/npm.view-design.ad5ecf3e.js (643 KiB)
+2025-01-10 10:22:07: js/npm.vue-meditor.f356bf71.js (676 KiB)
+2025-01-10 10:22:07: 
+2025-01-10 10:22:07: warning
+2025-01-10 10:22:07: 
+2025-01-10 10:22:07: entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+2025-01-10 10:22:07: Entrypoints:
+2025-01-10 10:22:07: app (1.48 MiB)
+2025-01-10 10:22:07: js/runtime.62f14afa.js
+2025-01-10 10:22:07: js/npm.core-js.19b3d73e.js
+2025-01-10 10:22:07: js/npm.babel.edbbbf4b.js
+2025-01-10 10:22:07: js/npm.axios.c331af1c.js
+2025-01-10 10:22:07: css/npm.view-design.94bf04de.css
+2025-01-10 10:22:07: js/npm.view-design.ad5ecf3e.js
+2025-01-10 10:22:07: css/npm.viewerjs.c6c0888f.css
+2025-01-10 10:22:07: js/npm.viewerjs.450bf54f.js
+2025-01-10 10:22:07: js/npm.formkit.c5a5d6cb.js
+2025-01-10 10:22:07: css/npm.element-ui.636ec213.css
+2025-01-10 10:22:07: js/npm.element-ui.29df6b7d.js
+2025-01-10 10:22:07: js/npm.v-viewer.7e9cfbac.js
+2025-01-10 10:22:07: js/npm.vue-router.17a46785.js
+2025-01-10 10:22:07: js/npm.vue.92b49f75.js
+2025-01-10 10:22:07: js/npm.vuex.132b34e2.js
+2025-01-10 10:22:07: css/app.d4bb0102.css
+2025-01-10 10:22:07: js/app.8cdb95a9.js
+2025-01-10 10:22:07: 
+2025-01-10 10:22:07: 
+2025-01-10 10:22:07: File                                      Size             Gzipped
+2025-01-10 10:22:07: 
+2025-01-10 10:22:07: dist\js\npm.vue-meditor.f356bf71.js       675.65 KiB       218.80 KiB
+2025-01-10 10:22:07: dist\js\npm.view-design.ad5ecf3e.js       642.72 KiB       146.21 KiB
+2025-01-10 10:22:07: dist\js\npm.emoji-mart-vue.1b57e5da.js    539.04 KiB       92.74 KiB
+2025-01-10 10:22:07: dist\js\npm.codemirror.f7e1334d.js        376.62 KiB       116.27 KiB
+2025-01-10 10:22:07: dist\js\npm.core-js.19b3d73e.js           121.39 KiB       41.79 KiB
+2025-01-10 10:22:07: dist\js\npm.vue-cropper.78b76695.js       110.38 KiB       26.05 KiB
+2025-01-10 10:22:07: dist\js\npm.vue.92b49f75.js               77.47 KiB        27.30 KiB
+2025-01-10 10:22:07: dist\js\npm.vcrontab.baae75be.js          58.31 KiB        13.86 KiB
+2025-01-10 10:22:07: dist\js\npm.jsencrypt.b6ed0d7f.js         56.18 KiB        17.09 KiB
+2025-01-10 10:22:07: dist\js\npm.riophae.54a3450b.js           55.08 KiB        14.74 KiB
+2025-01-10 10:22:07: dist\js\npm.sortablejs.d55ed06d.js        42.86 KiB        14.12 KiB
+2025-01-10 10:22:07: dist\js\npm.viewerjs.450bf54f.js          38.25 KiB        11.85 KiB
+2025-01-10 10:22:07: dist\js\chunk-6db549a9.b15d668e.js        37.98 KiB        11.52 KiB
+2025-01-10 10:22:07: dist\js\npm.lrz.553eefa4.js               33.98 KiB        12.88 KiB
+2025-01-10 10:22:07: dist\js\chunk-7d8eb554.967367af.js        32.54 KiB        10.77 KiB
+2025-01-10 10:22:07: dist\js\chunk-53a06c54.3410c43d.js        29.05 KiB        10.83 KiB
+2025-01-10 10:22:07: dist\js\npm.vue-router.17a46785.js        28.98 KiB        9.96 KiB
+2025-01-10 10:22:07: dist\js\chunk-7b2a5ea2.97265b67.js        27.68 KiB        8.88 KiB
+2025-01-10 10:22:07: dist\js\npm.vuedraggable.ebcc8de0.js      27.17 KiB        9.86 KiB
+2025-01-10 10:22:07: dist\js\chunk-8e55bec4.0d4df359.js        26.38 KiB        12.77 KiB
+2025-01-10 10:22:07: dist\js\chunk-500ae6c9.7f0df2ad.js        21.73 KiB        6.42 KiB
+2025-01-10 10:22:07: dist\js\npm.vue-select.5e04d683.js        20.73 KiB        6.37 KiB
+2025-01-10 10:22:07: dist\js\app.8cdb95a9.js                   18.51 KiB        6.41 KiB
+2025-01-10 10:22:07: dist\js\chunk-9225c0fe.20837bb5.js        17.64 KiB        4.56 KiB
+2025-01-10 10:22:07: dist\js\npm.babel.edbbbf4b.js             16.28 KiB        4.54 KiB
+2025-01-10 10:22:07: dist\js\chunk-f5f55cfc.f9ee1e3d.js        15.74 KiB        5.19 KiB
+2025-01-10 10:22:07: dist\js\chunk-6efd9400.90595ef0.js        15.39 KiB        4.61 KiB
+2025-01-10 10:22:07: dist\js\chunk-271bdb58.b7ff0d2f.js        14.52 KiB        4.73 KiB
+2025-01-10 10:22:07: dist\js\npm.axios.c331af1c.js             13.76 KiB        4.70 KiB
+2025-01-10 10:22:07: dist\js\chunk-1a287f16.136088a8.js        12.91 KiB        4.03 KiB
+2025-01-10 10:22:07: dist\js\npm.vuex.132b34e2.js              12.46 KiB        3.90 KiB
+2025-01-10 10:22:07: dist\js\npm.v-viewer.7e9cfbac.js          12.05 KiB        5.00 KiB
+2025-01-10 10:22:07: dist\js\chunk-6bd9f911.3eaf2810.js        7.43 KiB         2.88 KiB
+2025-01-10 10:22:07: dist\js\npm.formkit.c5a5d6cb.js           7.24 KiB         2.93 KiB
+2025-01-10 10:22:07: dist\js\runtime.62f14afa.js               6.11 KiB         2.36 KiB
+2025-01-10 10:22:07: dist\js\chunk-63bb8f9b.95e5411d.js        5.80 KiB         2.33 KiB
+2025-01-10 10:22:07: dist\js\chunk-0d8910d0.ba5a9a2e.js        5.37 KiB         2.21 KiB
+2025-01-10 10:22:07: dist\js\chunk-52d0ee5e.65ee2be0.js        4.91 KiB         2.12 KiB
+2025-01-10 10:22:07: dist\js\chunk-1e29fbdf.d801dd23.js        4.67 KiB         1.84 KiB
+2025-01-10 10:22:07: dist\js\chunk-1b907296.8263864c.js        4.53 KiB         1.70 KiB
+2025-01-10 10:22:07: dist\js\chunk-2d0aba9c.6440e68b.js        3.91 KiB         0.73 KiB
+2025-01-10 10:22:07: dist\js\chunk-cbd27c42.0cf9e2cf.js        1.95 KiB         1.06 KiB
+2025-01-10 10:22:07: dist\js\chunk-b32710d4.dd70b74a.js        1.68 KiB         0.95 KiB
+2025-01-10 10:22:07: dist\js\chunk-a9848d9c.26cb9465.js        0.70 KiB         0.49 KiB
+2025-01-10 10:22:07: dist\js\chunk-2d0c1074.3e72f48a.js        0.47 KiB         0.35 KiB
+2025-01-10 10:22:07: dist\js\chunk-2d0cc798.ea0af5f6.js        0.45 KiB         0.34 KiB
+2025-01-10 10:22:07: dist\js\chunk-2d0e13a4.d53c46ab.js        0.45 KiB         0.34 KiB
+2025-01-10 10:22:07: dist\js\npm.element-ui.29df6b7d.js        0.15 KiB         0.14 KiB
+2025-01-10 10:22:07: dist\css\npm.view-design.94bf04de.css     277.93 KiB       39.35 KiB
+2025-01-10 10:22:07: dist\css\npm.element-ui.636ec213.css      235.73 KiB       35.78 KiB
+2025-01-10 10:22:07: dist\css\chunk-271bdb58.ce4e8712.css      28.48 KiB        3.99 KiB
+2025-01-10 10:22:07: dist\css\npm.riophae.84f98409.css         26.10 KiB        4.86 KiB
+2025-01-10 10:22:07: dist\css\chunk-9225c0fe.b5a23984.css      23.06 KiB        3.79 KiB
+2025-01-10 10:22:07: dist\css\chunk-7d8eb554.95a219bc.css      18.33 KiB        3.61 KiB
+2025-01-10 10:22:07: dist\css\chunk-7b2a5ea2.7f65c4cb.css      15.62 KiB        2.77 KiB
+2025-01-10 10:22:07: dist\css\chunk-6db549a9.f3164df0.css      12.14 KiB        2.34 KiB
+2025-01-10 10:22:07: dist\css\chunk-6efd9400.27de8b81.css      11.81 KiB        2.10 KiB
+2025-01-10 10:22:07: dist\css\chunk-500ae6c9.10b0706e.css      11.35 KiB        2.30 KiB
+2025-01-10 10:22:07: dist\css\npm.codemirror.d1fc7e1b.css      11.07 KiB        3.14 KiB
+2025-01-10 10:22:07: dist\css\npm.vue-select.56c41540.css      8.97 KiB         1.91 KiB
+2025-01-10 10:22:07: dist\css\npm.viewerjs.c6c0888f.css        8.02 KiB         3.01 KiB
+2025-01-10 10:22:07: dist\css\chunk-8e55bec4.bab537f8.css      5.77 KiB         1.41 KiB
+2025-01-10 10:22:07: dist\css\chunk-1a287f16.9cd8f9c3.css      5.31 KiB         1.30 KiB
+2025-01-10 10:22:07: dist\css\chunk-6bd9f911.52a4fb81.css      3.71 KiB         0.98 KiB
+2025-01-10 10:22:07: dist\css\app.d4bb0102.css                 2.11 KiB         0.68 KiB
+2025-01-10 10:22:07: dist\css\chunk-1b907296.8d0badf6.css      1.88 KiB         0.53 KiB
+2025-01-10 10:22:07: dist\css\chunk-f5f55cfc.c8af307f.css      1.31 KiB         0.44 KiB
+2025-01-10 10:22:07: dist\css\chunk-b32710d4.9d70471b.css      0.71 KiB         0.33 KiB
+2025-01-10 10:22:07: dist\css\chunk-1e29fbdf.53ed46be.css      0.49 KiB         0.28 KiB
+2025-01-10 10:22:07: dist\css\chunk-a9848d9c.df55b327.css      0.32 KiB         0.21 KiB
+2025-01-10 10:22:07: dist\css\chunk-cbd27c42.473b315b.css      0.14 KiB         0.11 KiB
+2025-01-10 10:22:07: dist\css\chunk-0d8910d0.f132fa11.css      0.11 KiB         0.12 KiB
+2025-01-10 10:22:07: dist\css\chunk-52d0ee5e.80407536.css      0.11 KiB         0.12 KiB
+2025-01-10 10:22:07: 
+2025-01-10 10:22:07: Images and other types of assets omitted.
+2025-01-10 10:22:07: 
+2025-01-10 10:22:07: DONE  Build complete. The dist directory is ready to be deployed.
+2025-01-10 10:22:08: INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
+2025-01-10 10:22:08: 
+2025-01-10 10:22:08: 开始压缩打包文件...
+2025-01-10 10:22:09: 压缩完成。
+2025-01-10 10:22:09: 开始上传包到服务器...
+2025-01-10 10:22:09: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:22:09: Authentication (password) successful!
+2025-01-10 10:22:09: [chan 0] Opened sftp connection (server version 3)
+2025-01-10 10:22:18: [chan 0] sftp session closed.
+2025-01-10 10:22:18: 上传成功。
+2025-01-10 10:22:18: 开始备份现有项目...
+2025-01-10 10:22:19: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:22:19: Authentication (password) successful!
+2025-01-10 10:22:19: 备份成功。
+2025-01-10 10:22:19: 开始在服务器上解压和重命名...
+2025-01-10 10:22:19: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:22:19: Authentication (password) successful!
+2025-01-10 10:22:20: 部署完成
+2025-01-10 10:22:20: 解压和重命名成功。
+2025-01-10 10:22:20: 解压和重命名成功。
+2025-01-10 10:22:20: 项目部署完成！
+2025-01-10 10:22:21: 保存配置失败: Object of type datetime is not JSON serializable
+2025-01-10 10:23:23: 开始打包项目...
+2025-01-10 10:23:23: 执行命令: npm run build
+2025-01-10 10:23:24: 
+2025-01-10 10:23:24: > vue-admin-template@1.0.0 build
+2025-01-10 10:23:24: > set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build
+2025-01-10 10:23:24: 
+2025-01-10 10:23:25: 
+2025-01-10 10:23:39: WARNING  Compiled with 4 warnings10:23:39
+2025-01-10 10:23:39: 
+2025-01-10 10:23:39: warning  in ./src/components/user/UserProfile.vue?vue&type=script&lang=js
+2025-01-10 10:23:39: 
+2025-01-10 10:23:39: "export 'updatePassword' was not found in '@/api/user.js'
+2025-01-10 10:23:39: 
+2025-01-10 10:23:39: warning  in ./src/components/user/UserProfile.vue?vue&type=script&lang=js
+2025-01-10 10:23:39: 
+2025-01-10 10:23:39: "export 'updateUserInfo' (imported as '_updateUserInfo') was not found in '@/api/user.js'
+2025-01-10 10:23:39: 
+2025-01-10 10:23:39: warning
+2025-01-10 10:23:39: 
+2025-01-10 10:23:39: asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+2025-01-10 10:23:39: This can impact web performance.
+2025-01-10 10:23:39: Assets:
+2025-01-10 10:23:39: img/contact_non_selected@2x.a04d1532.png (303 KiB)
+2025-01-10 10:23:39: img/ionicons.a2c4a261.svg (542 KiB)
+2025-01-10 10:23:39: js/npm.codemirror.f7e1334d.js (377 KiB)
+2025-01-10 10:23:39: js/npm.emoji-mart-vue.1b57e5da.js (539 KiB)
+2025-01-10 10:23:39: css/npm.view-design.94bf04de.css (278 KiB)
+2025-01-10 10:23:39: js/npm.view-design.ad5ecf3e.js (643 KiB)
+2025-01-10 10:23:39: js/npm.vue-meditor.f356bf71.js (676 KiB)
+2025-01-10 10:23:39: 
+2025-01-10 10:23:39: warning
+2025-01-10 10:23:39: 
+2025-01-10 10:23:39: entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+2025-01-10 10:23:39: Entrypoints:
+2025-01-10 10:23:39: app (1.48 MiB)
+2025-01-10 10:23:39: js/runtime.6012c0bb.js
+2025-01-10 10:23:39: js/npm.core-js.19b3d73e.js
+2025-01-10 10:23:39: js/npm.babel.edbbbf4b.js
+2025-01-10 10:23:39: js/npm.axios.c331af1c.js
+2025-01-10 10:23:39: css/npm.view-design.94bf04de.css
+2025-01-10 10:23:39: js/npm.view-design.ad5ecf3e.js
+2025-01-10 10:23:39: css/npm.viewerjs.c6c0888f.css
+2025-01-10 10:23:39: js/npm.viewerjs.450bf54f.js
+2025-01-10 10:23:39: js/npm.formkit.c5a5d6cb.js
+2025-01-10 10:23:39: css/npm.element-ui.636ec213.css
+2025-01-10 10:23:39: js/npm.element-ui.29df6b7d.js
+2025-01-10 10:23:39: js/npm.v-viewer.7e9cfbac.js
+2025-01-10 10:23:39: js/npm.vue-router.17a46785.js
+2025-01-10 10:23:39: js/npm.vue.92b49f75.js
+2025-01-10 10:23:39: js/npm.vuex.132b34e2.js
+2025-01-10 10:23:39: css/app.d4bb0102.css
+2025-01-10 10:23:39: js/app.860f46de.js
+2025-01-10 10:23:39: 
+2025-01-10 10:23:39: 
+2025-01-10 10:23:39: File                                      Size             Gzipped
+2025-01-10 10:23:39: 
+2025-01-10 10:23:39: dist\js\npm.vue-meditor.f356bf71.js       675.65 KiB       218.80 KiB
+2025-01-10 10:23:39: dist\js\npm.view-design.ad5ecf3e.js       642.72 KiB       146.21 KiB
+2025-01-10 10:23:39: dist\js\npm.emoji-mart-vue.1b57e5da.js    539.04 KiB       92.74 KiB
+2025-01-10 10:23:39: dist\js\npm.codemirror.f7e1334d.js        376.62 KiB       116.27 KiB
+2025-01-10 10:23:39: dist\js\npm.core-js.19b3d73e.js           121.39 KiB       41.79 KiB
+2025-01-10 10:23:39: dist\js\npm.vue-cropper.78b76695.js       110.38 KiB       26.05 KiB
+2025-01-10 10:23:39: dist\js\npm.vue.92b49f75.js               77.47 KiB        27.30 KiB
+2025-01-10 10:23:39: dist\js\npm.vcrontab.baae75be.js          58.31 KiB        13.86 KiB
+2025-01-10 10:23:39: dist\js\npm.jsencrypt.b6ed0d7f.js         56.18 KiB        17.09 KiB
+2025-01-10 10:23:39: dist\js\npm.riophae.54a3450b.js           55.08 KiB        14.74 KiB
+2025-01-10 10:23:39: dist\js\npm.sortablejs.d55ed06d.js        42.86 KiB        14.12 KiB
+2025-01-10 10:23:39: dist\js\npm.viewerjs.450bf54f.js          38.25 KiB        11.85 KiB
+2025-01-10 10:23:39: dist\js\chunk-66750f26.f83a8223.js        37.98 KiB        11.52 KiB
+2025-01-10 10:23:39: dist\js\npm.lrz.553eefa4.js               33.98 KiB        12.88 KiB
+2025-01-10 10:23:39: dist\js\chunk-7d8eb554.967367af.js        32.54 KiB        10.77 KiB
+2025-01-10 10:23:39: dist\js\chunk-53a06c54.3410c43d.js        29.05 KiB        10.83 KiB
+2025-01-10 10:23:39: dist\js\npm.vue-router.17a46785.js        28.98 KiB        9.96 KiB
+2025-01-10 10:23:39: dist\js\chunk-7b2a5ea2.97265b67.js        27.68 KiB        8.88 KiB
+2025-01-10 10:23:39: dist\js\npm.vuedraggable.ebcc8de0.js      27.17 KiB        9.86 KiB
+2025-01-10 10:23:39: dist\js\chunk-8e55bec4.0d4df359.js        26.38 KiB        12.77 KiB
+2025-01-10 10:23:39: dist\js\chunk-500ae6c9.7f0df2ad.js        21.73 KiB        6.42 KiB
+2025-01-10 10:23:39: dist\js\npm.vue-select.5e04d683.js        20.73 KiB        6.37 KiB
+2025-01-10 10:23:39: dist\js\app.860f46de.js                   18.51 KiB        6.40 KiB
+2025-01-10 10:23:40: dist\js\chunk-9225c0fe.20837bb5.js        17.64 KiB        4.56 KiB
+2025-01-10 10:23:40: dist\js\npm.babel.edbbbf4b.js             16.28 KiB        4.54 KiB
+2025-01-10 10:23:40: dist\js\chunk-f5f55cfc.f9ee1e3d.js        15.74 KiB        5.19 KiB
+2025-01-10 10:23:40: dist\js\chunk-6efd9400.90595ef0.js        15.39 KiB        4.61 KiB
+2025-01-10 10:23:40: dist\js\chunk-271bdb58.b7ff0d2f.js        14.52 KiB        4.73 KiB
+2025-01-10 10:23:40: dist\js\npm.axios.c331af1c.js             13.76 KiB        4.70 KiB
+2025-01-10 10:23:40: dist\js\chunk-1a287f16.136088a8.js        12.91 KiB        4.03 KiB
+2025-01-10 10:23:40: dist\js\npm.vuex.132b34e2.js              12.46 KiB        3.90 KiB
+2025-01-10 10:23:40: dist\js\npm.v-viewer.7e9cfbac.js          12.05 KiB        5.00 KiB
+2025-01-10 10:23:40: dist\js\chunk-6bd9f911.3eaf2810.js        7.43 KiB         2.88 KiB
+2025-01-10 10:23:40: dist\js\npm.formkit.c5a5d6cb.js           7.24 KiB         2.93 KiB
+2025-01-10 10:23:40: dist\js\runtime.6012c0bb.js               6.11 KiB         2.36 KiB
+2025-01-10 10:23:40: dist\js\chunk-63bb8f9b.95e5411d.js        5.80 KiB         2.33 KiB
+2025-01-10 10:23:40: dist\js\chunk-0d8910d0.ba5a9a2e.js        5.37 KiB         2.21 KiB
+2025-01-10 10:23:40: dist\js\chunk-52d0ee5e.65ee2be0.js        4.91 KiB         2.12 KiB
+2025-01-10 10:23:40: dist\js\chunk-1e29fbdf.d801dd23.js        4.67 KiB         1.84 KiB
+2025-01-10 10:23:40: dist\js\chunk-1b907296.8263864c.js        4.53 KiB         1.70 KiB
+2025-01-10 10:23:40: dist\js\chunk-2d0aba9c.6440e68b.js        3.91 KiB         0.73 KiB
+2025-01-10 10:23:40: dist\js\chunk-cbd27c42.0cf9e2cf.js        1.95 KiB         1.06 KiB
+2025-01-10 10:23:40: dist\js\chunk-b32710d4.dd70b74a.js        1.68 KiB         0.95 KiB
+2025-01-10 10:23:40: dist\js\chunk-a9848d9c.26cb9465.js        0.70 KiB         0.49 KiB
+2025-01-10 10:23:40: dist\js\chunk-2d0c1074.3e72f48a.js        0.47 KiB         0.35 KiB
+2025-01-10 10:23:40: dist\js\chunk-2d0cc798.ea0af5f6.js        0.45 KiB         0.34 KiB
+2025-01-10 10:23:40: dist\js\chunk-2d0e13a4.d53c46ab.js        0.45 KiB         0.34 KiB
+2025-01-10 10:23:40: dist\js\npm.element-ui.29df6b7d.js        0.15 KiB         0.14 KiB
+2025-01-10 10:23:40: dist\css\npm.view-design.94bf04de.css     277.93 KiB       39.35 KiB
+2025-01-10 10:23:40: dist\css\npm.element-ui.636ec213.css      235.73 KiB       35.78 KiB
+2025-01-10 10:23:40: dist\css\chunk-271bdb58.ce4e8712.css      28.48 KiB        3.99 KiB
+2025-01-10 10:23:40: dist\css\npm.riophae.84f98409.css         26.10 KiB        4.86 KiB
+2025-01-10 10:23:40: dist\css\chunk-9225c0fe.b5a23984.css      23.06 KiB        3.79 KiB
+2025-01-10 10:23:40: dist\css\chunk-7d8eb554.95a219bc.css      18.33 KiB        3.61 KiB
+2025-01-10 10:23:40: dist\css\chunk-7b2a5ea2.7f65c4cb.css      15.62 KiB        2.77 KiB
+2025-01-10 10:23:40: dist\css\chunk-66750f26.48fc8e76.css      12.14 KiB        2.34 KiB
+2025-01-10 10:23:40: dist\css\chunk-6efd9400.27de8b81.css      11.81 KiB        2.10 KiB
+2025-01-10 10:23:40: dist\css\chunk-500ae6c9.10b0706e.css      11.35 KiB        2.30 KiB
+2025-01-10 10:23:40: dist\css\npm.codemirror.d1fc7e1b.css      11.07 KiB        3.14 KiB
+2025-01-10 10:23:40: dist\css\npm.vue-select.56c41540.css      8.97 KiB         1.91 KiB
+2025-01-10 10:23:40: dist\css\npm.viewerjs.c6c0888f.css        8.02 KiB         3.01 KiB
+2025-01-10 10:23:40: dist\css\chunk-8e55bec4.bab537f8.css      5.77 KiB         1.41 KiB
+2025-01-10 10:23:40: dist\css\chunk-1a287f16.9cd8f9c3.css      5.31 KiB         1.30 KiB
+2025-01-10 10:23:40: dist\css\chunk-6bd9f911.52a4fb81.css      3.71 KiB         0.98 KiB
+2025-01-10 10:23:40: dist\css\app.d4bb0102.css                 2.11 KiB         0.68 KiB
+2025-01-10 10:23:40: dist\css\chunk-1b907296.8d0badf6.css      1.88 KiB         0.53 KiB
+2025-01-10 10:23:40: dist\css\chunk-f5f55cfc.c8af307f.css      1.31 KiB         0.44 KiB
+2025-01-10 10:23:40: dist\css\chunk-b32710d4.9d70471b.css      0.71 KiB         0.33 KiB
+2025-01-10 10:23:40: dist\css\chunk-1e29fbdf.53ed46be.css      0.49 KiB         0.28 KiB
+2025-01-10 10:23:40: dist\css\chunk-a9848d9c.df55b327.css      0.32 KiB         0.21 KiB
+2025-01-10 10:23:40: dist\css\chunk-cbd27c42.473b315b.css      0.14 KiB         0.11 KiB
+2025-01-10 10:23:40: dist\css\chunk-0d8910d0.f132fa11.css      0.11 KiB         0.12 KiB
+2025-01-10 10:23:40: dist\css\chunk-52d0ee5e.80407536.css      0.11 KiB         0.12 KiB
+2025-01-10 10:23:40: 
+2025-01-10 10:23:40: Images and other types of assets omitted.
+2025-01-10 10:23:40: 
+2025-01-10 10:23:40: DONE  Build complete. The dist directory is ready to be deployed.
+2025-01-10 10:23:40: INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
+2025-01-10 10:23:40: 
+2025-01-10 10:23:40: 开始压缩打包文件...
+2025-01-10 10:23:41: 压缩完成。
+2025-01-10 10:23:41: 开始上传包到服务器...
+2025-01-10 10:23:41: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:23:42: Authentication (password) successful!
+2025-01-10 10:23:42: [chan 0] Opened sftp connection (server version 3)
+2025-01-10 10:23:49: [chan 0] sftp session closed.
+2025-01-10 10:23:49: 上传成功。
+2025-01-10 10:23:49: 开始备份现有项目...
+2025-01-10 10:23:49: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:23:49: Authentication (password) successful!
+2025-01-10 10:23:49: 备份成功。
+2025-01-10 10:23:49: 开始在服务器上解压和重命名...
+2025-01-10 10:23:49: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:23:49: Authentication (password) successful!
+2025-01-10 10:23:50: 部署完成
+2025-01-10 10:23:50: 解压和重命名成功。
+2025-01-10 10:23:50: 解压和重命名成功。
+2025-01-10 10:23:50: 项目部署完成！
+2025-01-10 10:23:51: 保存配置失败: Object of type datetime is not JSON serializable
+2025-01-10 10:25:07: 配置加载成功
+2025-01-10 10:25:17: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:25:17: Authentication (password) successful!
+2025-01-10 10:25:18: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:25:18: Authentication (password) successful!
+2025-01-10 10:25:20: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:25:20: Authentication (password) successful!
+2025-01-10 10:26:12: 开始打包项目...
+2025-01-10 10:26:12: 执行命令: npm run build
+2025-01-10 10:26:14: 
+2025-01-10 10:26:14: > vue-admin-template@1.0.0 build
+2025-01-10 10:26:14: > set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build
+2025-01-10 10:26:14: 
+2025-01-10 10:26:15: 
+2025-01-10 10:26:28: WARNING  Compiled with 4 warnings10:26:28
+2025-01-10 10:26:28: 
+2025-01-10 10:26:28: warning  in ./src/components/user/UserProfile.vue?vue&type=script&lang=js
+2025-01-10 10:26:28: 
+2025-01-10 10:26:28: "export 'updatePassword' was not found in '@/api/user.js'
+2025-01-10 10:26:28: 
+2025-01-10 10:26:28: warning  in ./src/components/user/UserProfile.vue?vue&type=script&lang=js
+2025-01-10 10:26:28: 
+2025-01-10 10:26:28: "export 'updateUserInfo' (imported as '_updateUserInfo') was not found in '@/api/user.js'
+2025-01-10 10:26:28: 
+2025-01-10 10:26:28: warning
+2025-01-10 10:26:28: 
+2025-01-10 10:26:28: asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+2025-01-10 10:26:28: This can impact web performance.
+2025-01-10 10:26:28: Assets:
+2025-01-10 10:26:28: img/contact_non_selected@2x.a04d1532.png (303 KiB)
+2025-01-10 10:26:28: img/ionicons.a2c4a261.svg (542 KiB)
+2025-01-10 10:26:28: js/npm.codemirror.f7e1334d.js (377 KiB)
+2025-01-10 10:26:28: js/npm.emoji-mart-vue.1b57e5da.js (539 KiB)
+2025-01-10 10:26:28: css/npm.view-design.94bf04de.css (278 KiB)
+2025-01-10 10:26:28: js/npm.view-design.ad5ecf3e.js (643 KiB)
+2025-01-10 10:26:28: js/npm.vue-meditor.f356bf71.js (676 KiB)
+2025-01-10 10:26:28: 
+2025-01-10 10:26:28: warning
+2025-01-10 10:26:28: 
+2025-01-10 10:26:28: entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+2025-01-10 10:26:28: Entrypoints:
+2025-01-10 10:26:28: app (1.48 MiB)
+2025-01-10 10:26:28: js/runtime.62f14afa.js
+2025-01-10 10:26:28: js/npm.core-js.19b3d73e.js
+2025-01-10 10:26:28: js/npm.babel.edbbbf4b.js
+2025-01-10 10:26:28: js/npm.axios.c331af1c.js
+2025-01-10 10:26:28: css/npm.view-design.94bf04de.css
+2025-01-10 10:26:28: js/npm.view-design.ad5ecf3e.js
+2025-01-10 10:26:28: css/npm.viewerjs.c6c0888f.css
+2025-01-10 10:26:28: js/npm.viewerjs.450bf54f.js
+2025-01-10 10:26:28: js/npm.formkit.c5a5d6cb.js
+2025-01-10 10:26:28: css/npm.element-ui.636ec213.css
+2025-01-10 10:26:28: js/npm.element-ui.29df6b7d.js
+2025-01-10 10:26:28: js/npm.v-viewer.7e9cfbac.js
+2025-01-10 10:26:28: js/npm.vue-router.17a46785.js
+2025-01-10 10:26:28: js/npm.vue.92b49f75.js
+2025-01-10 10:26:28: js/npm.vuex.132b34e2.js
+2025-01-10 10:26:28: css/app.d4bb0102.css
+2025-01-10 10:26:28: js/app.8cdb95a9.js
+2025-01-10 10:26:28: 
+2025-01-10 10:26:28: 
+2025-01-10 10:26:28: File                                      Size             Gzipped
+2025-01-10 10:26:28: 
+2025-01-10 10:26:28: dist\js\npm.vue-meditor.f356bf71.js       675.65 KiB       218.80 KiB
+2025-01-10 10:26:28: dist\js\npm.view-design.ad5ecf3e.js       642.72 KiB       146.21 KiB
+2025-01-10 10:26:28: dist\js\npm.emoji-mart-vue.1b57e5da.js    539.04 KiB       92.74 KiB
+2025-01-10 10:26:28: dist\js\npm.codemirror.f7e1334d.js        376.62 KiB       116.27 KiB
+2025-01-10 10:26:28: dist\js\npm.core-js.19b3d73e.js           121.39 KiB       41.79 KiB
+2025-01-10 10:26:28: dist\js\npm.vue-cropper.78b76695.js       110.38 KiB       26.05 KiB
+2025-01-10 10:26:28: dist\js\npm.vue.92b49f75.js               77.47 KiB        27.30 KiB
+2025-01-10 10:26:28: dist\js\npm.vcrontab.baae75be.js          58.31 KiB        13.86 KiB
+2025-01-10 10:26:28: dist\js\npm.jsencrypt.b6ed0d7f.js         56.18 KiB        17.09 KiB
+2025-01-10 10:26:28: dist\js\npm.riophae.54a3450b.js           55.08 KiB        14.74 KiB
+2025-01-10 10:26:28: dist\js\npm.sortablejs.d55ed06d.js        42.86 KiB        14.12 KiB
+2025-01-10 10:26:28: dist\js\npm.viewerjs.450bf54f.js          38.25 KiB        11.85 KiB
+2025-01-10 10:26:28: dist\js\chunk-6db549a9.b15d668e.js        37.98 KiB        11.52 KiB
+2025-01-10 10:26:28: dist\js\npm.lrz.553eefa4.js               33.98 KiB        12.88 KiB
+2025-01-10 10:26:28: dist\js\chunk-7d8eb554.967367af.js        32.54 KiB        10.77 KiB
+2025-01-10 10:26:28: dist\js\chunk-53a06c54.3410c43d.js        29.05 KiB        10.83 KiB
+2025-01-10 10:26:28: dist\js\npm.vue-router.17a46785.js        28.98 KiB        9.96 KiB
+2025-01-10 10:26:28: dist\js\chunk-7b2a5ea2.97265b67.js        27.68 KiB        8.88 KiB
+2025-01-10 10:26:28: dist\js\npm.vuedraggable.ebcc8de0.js      27.17 KiB        9.86 KiB
+2025-01-10 10:26:29: dist\js\chunk-8e55bec4.0d4df359.js        26.38 KiB        12.77 KiB
+2025-01-10 10:26:29: dist\js\chunk-500ae6c9.7f0df2ad.js        21.73 KiB        6.42 KiB
+2025-01-10 10:26:29: dist\js\npm.vue-select.5e04d683.js        20.73 KiB        6.37 KiB
+2025-01-10 10:26:29: dist\js\app.8cdb95a9.js                   18.51 KiB        6.41 KiB
+2025-01-10 10:26:29: dist\js\chunk-9225c0fe.20837bb5.js        17.64 KiB        4.56 KiB
+2025-01-10 10:26:29: dist\js\npm.babel.edbbbf4b.js             16.28 KiB        4.54 KiB
+2025-01-10 10:26:29: dist\js\chunk-f5f55cfc.f9ee1e3d.js        15.74 KiB        5.19 KiB
+2025-01-10 10:26:29: dist\js\chunk-6efd9400.90595ef0.js        15.39 KiB        4.61 KiB
+2025-01-10 10:26:29: dist\js\chunk-271bdb58.b7ff0d2f.js        14.52 KiB        4.73 KiB
+2025-01-10 10:26:29: dist\js\npm.axios.c331af1c.js             13.76 KiB        4.70 KiB
+2025-01-10 10:26:29: dist\js\chunk-1a287f16.136088a8.js        12.91 KiB        4.03 KiB
+2025-01-10 10:26:29: dist\js\npm.vuex.132b34e2.js              12.46 KiB        3.90 KiB
+2025-01-10 10:26:29: dist\js\npm.v-viewer.7e9cfbac.js          12.05 KiB        5.00 KiB
+2025-01-10 10:26:29: dist\js\chunk-6bd9f911.3eaf2810.js        7.43 KiB         2.88 KiB
+2025-01-10 10:26:29: dist\js\npm.formkit.c5a5d6cb.js           7.24 KiB         2.93 KiB
+2025-01-10 10:26:29: dist\js\runtime.62f14afa.js               6.11 KiB         2.36 KiB
+2025-01-10 10:26:29: dist\js\chunk-63bb8f9b.95e5411d.js        5.80 KiB         2.33 KiB
+2025-01-10 10:26:29: dist\js\chunk-0d8910d0.ba5a9a2e.js        5.37 KiB         2.21 KiB
+2025-01-10 10:26:29: dist\js\chunk-52d0ee5e.65ee2be0.js        4.91 KiB         2.12 KiB
+2025-01-10 10:26:29: dist\js\chunk-1e29fbdf.d801dd23.js        4.67 KiB         1.84 KiB
+2025-01-10 10:26:29: dist\js\chunk-1b907296.8263864c.js        4.53 KiB         1.70 KiB
+2025-01-10 10:26:29: dist\js\chunk-2d0aba9c.6440e68b.js        3.91 KiB         0.73 KiB
+2025-01-10 10:26:29: dist\js\chunk-cbd27c42.0cf9e2cf.js        1.95 KiB         1.06 KiB
+2025-01-10 10:26:29: dist\js\chunk-b32710d4.dd70b74a.js        1.68 KiB         0.95 KiB
+2025-01-10 10:26:29: dist\js\chunk-a9848d9c.26cb9465.js        0.70 KiB         0.49 KiB
+2025-01-10 10:26:29: dist\js\chunk-2d0c1074.3e72f48a.js        0.47 KiB         0.35 KiB
+2025-01-10 10:26:29: dist\js\chunk-2d0cc798.ea0af5f6.js        0.45 KiB         0.34 KiB
+2025-01-10 10:26:29: dist\js\chunk-2d0e13a4.d53c46ab.js        0.45 KiB         0.34 KiB
+2025-01-10 10:26:29: dist\js\npm.element-ui.29df6b7d.js        0.15 KiB         0.14 KiB
+2025-01-10 10:26:29: dist\css\npm.view-design.94bf04de.css     277.93 KiB       39.35 KiB
+2025-01-10 10:26:29: dist\css\npm.element-ui.636ec213.css      235.73 KiB       35.78 KiB
+2025-01-10 10:26:29: dist\css\chunk-271bdb58.ce4e8712.css      28.48 KiB        3.99 KiB
+2025-01-10 10:26:29: dist\css\npm.riophae.84f98409.css         26.10 KiB        4.86 KiB
+2025-01-10 10:26:29: dist\css\chunk-9225c0fe.b5a23984.css      23.06 KiB        3.79 KiB
+2025-01-10 10:26:29: dist\css\chunk-7d8eb554.95a219bc.css      18.33 KiB        3.61 KiB
+2025-01-10 10:26:29: dist\css\chunk-7b2a5ea2.7f65c4cb.css      15.62 KiB        2.77 KiB
+2025-01-10 10:26:29: dist\css\chunk-6db549a9.f3164df0.css      12.14 KiB        2.34 KiB
+2025-01-10 10:26:29: dist\css\chunk-6efd9400.27de8b81.css      11.81 KiB        2.10 KiB
+2025-01-10 10:26:29: dist\css\chunk-500ae6c9.10b0706e.css      11.35 KiB        2.30 KiB
+2025-01-10 10:26:29: dist\css\npm.codemirror.d1fc7e1b.css      11.07 KiB        3.14 KiB
+2025-01-10 10:26:29: dist\css\npm.vue-select.56c41540.css      8.97 KiB         1.91 KiB
+2025-01-10 10:26:29: dist\css\npm.viewerjs.c6c0888f.css        8.02 KiB         3.01 KiB
+2025-01-10 10:26:29: dist\css\chunk-8e55bec4.bab537f8.css      5.77 KiB         1.41 KiB
+2025-01-10 10:26:29: dist\css\chunk-1a287f16.9cd8f9c3.css      5.31 KiB         1.30 KiB
+2025-01-10 10:26:29: dist\css\chunk-6bd9f911.52a4fb81.css      3.71 KiB         0.98 KiB
+2025-01-10 10:26:29: dist\css\app.d4bb0102.css                 2.11 KiB         0.68 KiB
+2025-01-10 10:26:29: dist\css\chunk-1b907296.8d0badf6.css      1.88 KiB         0.53 KiB
+2025-01-10 10:26:29: dist\css\chunk-f5f55cfc.c8af307f.css      1.31 KiB         0.44 KiB
+2025-01-10 10:26:29: dist\css\chunk-b32710d4.9d70471b.css      0.71 KiB         0.33 KiB
+2025-01-10 10:26:29: dist\css\chunk-1e29fbdf.53ed46be.css      0.49 KiB         0.28 KiB
+2025-01-10 10:26:29: dist\css\chunk-a9848d9c.df55b327.css      0.32 KiB         0.21 KiB
+2025-01-10 10:26:29: dist\css\chunk-cbd27c42.473b315b.css      0.14 KiB         0.11 KiB
+2025-01-10 10:26:29: dist\css\chunk-0d8910d0.f132fa11.css      0.11 KiB         0.12 KiB
+2025-01-10 10:26:29: dist\css\chunk-52d0ee5e.80407536.css      0.11 KiB         0.12 KiB
+2025-01-10 10:26:29: 
+2025-01-10 10:26:29: Images and other types of assets omitted.
+2025-01-10 10:26:29: 
+2025-01-10 10:26:29: DONE  Build complete. The dist directory is ready to be deployed.
+2025-01-10 10:26:29: INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
+2025-01-10 10:26:29: 
+2025-01-10 10:26:29: 构建过程中发现警告:
+2025-01-10 10:26:29: WARNING  Compiled with 4 warnings10:26:28
+2025-01-10 10:26:29: 开始压缩打包文件...
+2025-01-10 10:26:30: 压缩完成。
+2025-01-10 10:26:30: 开始上传包到服务器...
+2025-01-10 10:26:30: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:26:31: Authentication (password) successful!
+2025-01-10 10:26:31: [chan 0] Opened sftp connection (server version 3)
+2025-01-10 10:26:38: [chan 0] sftp session closed.
+2025-01-10 10:26:38: 上传成功。
+2025-01-10 10:26:38: 开始备份现有项目...
+2025-01-10 10:26:38: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:26:38: Authentication (password) successful!
+2025-01-10 10:26:38: 备份成功。
+2025-01-10 10:26:38: 开始在服务器上解压和重命名...
+2025-01-10 10:26:38: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:26:39: Authentication (password) successful!
+2025-01-10 10:26:39: 部署完成
+2025-01-10 10:26:39: 解压和重命名成功。
+2025-01-10 10:26:39: 解压和重命名成功。
+2025-01-10 10:26:39: 项目部署完成！
+2025-01-10 10:26:40: 配置保存成功
+2025-01-10 10:27:06: 配置加载成功
+2025-01-10 10:27:46: 配置加载成功
+2025-01-10 10:27:49: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:27:50: Authentication (password) successful!
+2025-01-10 10:27:51: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:27:52: Authentication (password) successful!
+2025-01-10 10:27:54: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:27:54: Authentication (password) successful!
+2025-01-10 10:28:17: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:28:17: Authentication (password) successful!
+2025-01-10 10:28:20: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:28:20: Authentication (password) successful!
+2025-01-10 10:29:00: 配置加载成功
+2025-01-10 10:29:03: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:29:03: Authentication (password) successful!
+2025-01-10 10:29:21: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:29:21: Authentication (password) successful!
+2025-01-10 10:29:47: 开始打包项目...
+2025-01-10 10:29:47: 执行命令: npm run build
+2025-01-10 10:29:48: 
+2025-01-10 10:29:48: > vue-admin-template@1.0.0 build
+2025-01-10 10:29:48: > set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build
+2025-01-10 10:29:48: 
+2025-01-10 10:29:50: 
+2025-01-10 10:30:03: WARNING  Compiled with 4 warnings10:30:03
+2025-01-10 10:30:03: 
+2025-01-10 10:30:03: warning  in ./src/components/user/UserProfile.vue?vue&type=script&lang=js
+2025-01-10 10:30:03: 
+2025-01-10 10:30:03: "export 'updatePassword' was not found in '@/api/user.js'
+2025-01-10 10:30:03: 
+2025-01-10 10:30:03: warning  in ./src/components/user/UserProfile.vue?vue&type=script&lang=js
+2025-01-10 10:30:04: 
+2025-01-10 10:30:04: "export 'updateUserInfo' (imported as '_updateUserInfo') was not found in '@/api/user.js'
+2025-01-10 10:30:04: 
+2025-01-10 10:30:04: warning
+2025-01-10 10:30:04: 
+2025-01-10 10:30:04: asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+2025-01-10 10:30:04: This can impact web performance.
+2025-01-10 10:30:04: Assets:
+2025-01-10 10:30:04: img/contact_non_selected@2x.a04d1532.png (303 KiB)
+2025-01-10 10:30:04: img/ionicons.a2c4a261.svg (542 KiB)
+2025-01-10 10:30:04: js/npm.codemirror.f7e1334d.js (377 KiB)
+2025-01-10 10:30:04: js/npm.emoji-mart-vue.1b57e5da.js (539 KiB)
+2025-01-10 10:30:04: css/npm.view-design.94bf04de.css (278 KiB)
+2025-01-10 10:30:04: js/npm.view-design.ad5ecf3e.js (643 KiB)
+2025-01-10 10:30:04: js/npm.vue-meditor.f356bf71.js (676 KiB)
+2025-01-10 10:30:04: 
+2025-01-10 10:30:04: warning
+2025-01-10 10:30:04: 
+2025-01-10 10:30:04: entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+2025-01-10 10:30:04: Entrypoints:
+2025-01-10 10:30:04: app (1.48 MiB)
+2025-01-10 10:30:04: js/runtime.39690004.js
+2025-01-10 10:30:04: js/npm.core-js.19b3d73e.js
+2025-01-10 10:30:04: js/npm.babel.edbbbf4b.js
+2025-01-10 10:30:04: js/npm.axios.c331af1c.js
+2025-01-10 10:30:04: css/npm.view-design.94bf04de.css
+2025-01-10 10:30:04: js/npm.view-design.ad5ecf3e.js
+2025-01-10 10:30:04: css/npm.viewerjs.c6c0888f.css
+2025-01-10 10:30:04: js/npm.viewerjs.450bf54f.js
+2025-01-10 10:30:04: js/npm.formkit.c5a5d6cb.js
+2025-01-10 10:30:04: css/npm.element-ui.636ec213.css
+2025-01-10 10:30:04: js/npm.element-ui.29df6b7d.js
+2025-01-10 10:30:04: js/npm.v-viewer.7e9cfbac.js
+2025-01-10 10:30:04: js/npm.vue-router.17a46785.js
+2025-01-10 10:30:04: js/npm.vue.92b49f75.js
+2025-01-10 10:30:04: js/npm.vuex.132b34e2.js
+2025-01-10 10:30:04: css/app.d4bb0102.css
+2025-01-10 10:30:04: js/app.d24831b5.js
+2025-01-10 10:30:04: 
+2025-01-10 10:30:04: 
+2025-01-10 10:30:04: File                                      Size             Gzipped
+2025-01-10 10:30:04: 
+2025-01-10 10:30:04: dist\js\npm.vue-meditor.f356bf71.js       675.65 KiB       218.80 KiB
+2025-01-10 10:30:04: dist\js\npm.view-design.ad5ecf3e.js       642.72 KiB       146.21 KiB
+2025-01-10 10:30:04: dist\js\npm.emoji-mart-vue.1b57e5da.js    539.04 KiB       92.74 KiB
+2025-01-10 10:30:04: dist\js\npm.codemirror.f7e1334d.js        376.62 KiB       116.27 KiB
+2025-01-10 10:30:04: dist\js\npm.core-js.19b3d73e.js           121.39 KiB       41.79 KiB
+2025-01-10 10:30:04: dist\js\npm.vue-cropper.78b76695.js       110.38 KiB       26.05 KiB
+2025-01-10 10:30:04: dist\js\npm.vue.92b49f75.js               77.47 KiB        27.30 KiB
+2025-01-10 10:30:04: dist\js\npm.vcrontab.baae75be.js          58.31 KiB        13.86 KiB
+2025-01-10 10:30:04: dist\js\npm.jsencrypt.b6ed0d7f.js         56.18 KiB        17.09 KiB
+2025-01-10 10:30:04: dist\js\npm.riophae.54a3450b.js           55.08 KiB        14.74 KiB
+2025-01-10 10:30:04: dist\js\npm.sortablejs.d55ed06d.js        42.86 KiB        14.12 KiB
+2025-01-10 10:30:04: dist\js\npm.viewerjs.450bf54f.js          38.25 KiB        11.85 KiB
+2025-01-10 10:30:04: dist\js\chunk-3ffb7b05.7cee72b9.js        37.98 KiB        11.52 KiB
+2025-01-10 10:30:04: dist\js\npm.lrz.553eefa4.js               33.98 KiB        12.88 KiB
+2025-01-10 10:30:04: dist\js\chunk-7d8eb554.967367af.js        32.54 KiB        10.77 KiB
+2025-01-10 10:30:04: dist\js\chunk-53a06c54.3410c43d.js        29.05 KiB        10.83 KiB
+2025-01-10 10:30:04: dist\js\npm.vue-router.17a46785.js        28.98 KiB        9.96 KiB
+2025-01-10 10:30:04: dist\js\chunk-7b2a5ea2.97265b67.js        27.68 KiB        8.88 KiB
+2025-01-10 10:30:04: dist\js\npm.vuedraggable.ebcc8de0.js      27.17 KiB        9.86 KiB
+2025-01-10 10:30:04: dist\js\chunk-8e55bec4.0d4df359.js        26.38 KiB        12.77 KiB
+2025-01-10 10:30:04: dist\js\chunk-500ae6c9.7f0df2ad.js        21.73 KiB        6.42 KiB
+2025-01-10 10:30:04: dist\js\npm.vue-select.5e04d683.js        20.73 KiB        6.37 KiB
+2025-01-10 10:30:04: dist\js\app.d24831b5.js                   18.51 KiB        6.41 KiB
+2025-01-10 10:30:04: dist\js\chunk-9225c0fe.20837bb5.js        17.64 KiB        4.56 KiB
+2025-01-10 10:30:04: dist\js\npm.babel.edbbbf4b.js             16.28 KiB        4.54 KiB
+2025-01-10 10:30:04: dist\js\chunk-f5f55cfc.f9ee1e3d.js        15.74 KiB        5.19 KiB
+2025-01-10 10:30:04: dist\js\chunk-6efd9400.90595ef0.js        15.39 KiB        4.61 KiB
+2025-01-10 10:30:04: dist\js\chunk-271bdb58.b7ff0d2f.js        14.52 KiB        4.73 KiB
+2025-01-10 10:30:04: dist\js\npm.axios.c331af1c.js             13.76 KiB        4.70 KiB
+2025-01-10 10:30:04: dist\js\chunk-1a287f16.136088a8.js        12.91 KiB        4.03 KiB
+2025-01-10 10:30:04: dist\js\npm.vuex.132b34e2.js              12.46 KiB        3.90 KiB
+2025-01-10 10:30:04: dist\js\npm.v-viewer.7e9cfbac.js          12.05 KiB        5.00 KiB
+2025-01-10 10:30:04: dist\js\chunk-6bd9f911.3eaf2810.js        7.43 KiB         2.88 KiB
+2025-01-10 10:30:04: dist\js\npm.formkit.c5a5d6cb.js           7.24 KiB         2.93 KiB
+2025-01-10 10:30:04: dist\js\runtime.39690004.js               6.11 KiB         2.36 KiB
+2025-01-10 10:30:04: dist\js\chunk-63bb8f9b.95e5411d.js        5.80 KiB         2.33 KiB
+2025-01-10 10:30:04: dist\js\chunk-0d8910d0.ba5a9a2e.js        5.37 KiB         2.21 KiB
+2025-01-10 10:30:04: dist\js\chunk-52d0ee5e.65ee2be0.js        4.91 KiB         2.12 KiB
+2025-01-10 10:30:04: dist\js\chunk-1e29fbdf.d801dd23.js        4.67 KiB         1.84 KiB
+2025-01-10 10:30:04: dist\js\chunk-1b907296.8263864c.js        4.53 KiB         1.70 KiB
+2025-01-10 10:30:04: dist\js\chunk-2d0aba9c.6440e68b.js        3.91 KiB         0.73 KiB
+2025-01-10 10:30:04: dist\js\chunk-cbd27c42.0cf9e2cf.js        1.95 KiB         1.06 KiB
+2025-01-10 10:30:04: dist\js\chunk-b32710d4.dd70b74a.js        1.68 KiB         0.95 KiB
+2025-01-10 10:30:04: dist\js\chunk-a9848d9c.26cb9465.js        0.70 KiB         0.49 KiB
+2025-01-10 10:30:04: dist\js\chunk-2d0c1074.3e72f48a.js        0.47 KiB         0.35 KiB
+2025-01-10 10:30:04: dist\js\chunk-2d0cc798.ea0af5f6.js        0.45 KiB         0.34 KiB
+2025-01-10 10:30:04: dist\js\chunk-2d0e13a4.d53c46ab.js        0.45 KiB         0.34 KiB
+2025-01-10 10:30:04: dist\js\npm.element-ui.29df6b7d.js        0.15 KiB         0.14 KiB
+2025-01-10 10:30:04: dist\css\npm.view-design.94bf04de.css     277.93 KiB       39.35 KiB
+2025-01-10 10:30:04: dist\css\npm.element-ui.636ec213.css      235.73 KiB       35.78 KiB
+2025-01-10 10:30:04: dist\css\chunk-271bdb58.ce4e8712.css      28.48 KiB        3.99 KiB
+2025-01-10 10:30:04: dist\css\npm.riophae.84f98409.css         26.10 KiB        4.86 KiB
+2025-01-10 10:30:04: dist\css\chunk-9225c0fe.b5a23984.css      23.06 KiB        3.79 KiB
+2025-01-10 10:30:04: dist\css\chunk-7d8eb554.95a219bc.css      18.33 KiB        3.61 KiB
+2025-01-10 10:30:04: dist\css\chunk-7b2a5ea2.7f65c4cb.css      15.62 KiB        2.77 KiB
+2025-01-10 10:30:04: dist\css\chunk-3ffb7b05.cc9f3bcd.css      12.14 KiB        2.34 KiB
+2025-01-10 10:30:04: dist\css\chunk-6efd9400.27de8b81.css      11.81 KiB        2.10 KiB
+2025-01-10 10:30:04: dist\css\chunk-500ae6c9.10b0706e.css      11.35 KiB        2.30 KiB
+2025-01-10 10:30:04: dist\css\npm.codemirror.d1fc7e1b.css      11.07 KiB        3.14 KiB
+2025-01-10 10:30:04: dist\css\npm.vue-select.56c41540.css      8.97 KiB         1.91 KiB
+2025-01-10 10:30:04: dist\css\npm.viewerjs.c6c0888f.css        8.02 KiB         3.01 KiB
+2025-01-10 10:30:04: dist\css\chunk-8e55bec4.bab537f8.css      5.77 KiB         1.41 KiB
+2025-01-10 10:30:04: dist\css\chunk-1a287f16.9cd8f9c3.css      5.31 KiB         1.30 KiB
+2025-01-10 10:30:04: dist\css\chunk-6bd9f911.52a4fb81.css      3.71 KiB         0.98 KiB
+2025-01-10 10:30:04: dist\css\app.d4bb0102.css                 2.11 KiB         0.68 KiB
+2025-01-10 10:30:04: dist\css\chunk-1b907296.8d0badf6.css      1.88 KiB         0.53 KiB
+2025-01-10 10:30:05: dist\css\chunk-f5f55cfc.c8af307f.css      1.31 KiB         0.44 KiB
+2025-01-10 10:30:05: dist\css\chunk-b32710d4.9d70471b.css      0.71 KiB         0.33 KiB
+2025-01-10 10:30:05: dist\css\chunk-1e29fbdf.53ed46be.css      0.49 KiB         0.28 KiB
+2025-01-10 10:30:05: dist\css\chunk-a9848d9c.df55b327.css      0.32 KiB         0.21 KiB
+2025-01-10 10:30:05: dist\css\chunk-cbd27c42.473b315b.css      0.14 KiB         0.11 KiB
+2025-01-10 10:30:05: dist\css\chunk-0d8910d0.f132fa11.css      0.11 KiB         0.12 KiB
+2025-01-10 10:30:05: dist\css\chunk-52d0ee5e.80407536.css      0.11 KiB         0.12 KiB
+2025-01-10 10:30:05: 
+2025-01-10 10:30:05: Images and other types of assets omitted.
+2025-01-10 10:30:05: 
+2025-01-10 10:30:05: DONE  Build complete. The dist directory is ready to be deployed.
+2025-01-10 10:30:05: INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
+2025-01-10 10:30:05: 
+2025-01-10 10:30:05: 构建过程中发现警告:
+2025-01-10 10:30:05: WARNING  Compiled with 4 warnings10:30:03
+2025-01-10 10:30:05: 开始压缩打包文件...
+2025-01-10 10:30:06: 压缩完成。
+2025-01-10 10:30:06: 开始上传包到服务器...
+2025-01-10 10:30:06: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:30:06: Authentication (password) successful!
+2025-01-10 10:30:06: [chan 0] Opened sftp connection (server version 3)
+2025-01-10 10:30:14: [chan 0] sftp session closed.
+2025-01-10 10:30:14: 上传成功。
+2025-01-10 10:30:14: 开始备份现有项目...
+2025-01-10 10:30:14: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:30:14: Authentication (password) successful!
+2025-01-10 10:30:14: 备份成功。
+2025-01-10 10:30:14: 开始在服务器上解压和重命名...
+2025-01-10 10:30:14: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:30:14: Authentication (password) successful!
+2025-01-10 10:30:15: 部署完成
+2025-01-10 10:30:15: 解压和重命名成功。
+2025-01-10 10:30:15: 解压和重命名成功。
+2025-01-10 10:30:15: 项目部署完成！
+2025-01-10 10:30:15: 配置保存成功
+2025-01-10 10:39:35: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:39:35: Authentication (password) successful!
+2025-01-10 10:41:00: 配置加载成功
+2025-01-10 10:41:03: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:41:03: Authentication (password) successful!
+2025-01-10 10:41:21: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:41:21: Authentication (password) successful!
+2025-01-10 10:41:22: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:41:22: Authentication (password) successful!
+2025-01-10 10:41:24: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:41:24: Authentication (password) successful!
+2025-01-10 10:41:42: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:41:42: Authentication (password) successful!
+2025-01-10 10:41:52: 配置加载成功
+2025-01-10 10:41:53: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:41:53: Authentication (password) successful!
+2025-01-10 10:43:09: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:43:11: Authentication (password) failed.
+2025-01-10 10:43:14: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:43:15: Authentication (password) successful!
+2025-01-10 10:43:34: 配置加载成功
+2025-01-10 10:43:40: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:43:40: Authentication (password) successful!
+2025-01-10 10:43:54: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:43:55: Authentication (password) successful!
+2025-01-10 10:44:05: 开始打包项目...
+2025-01-10 10:44:05: 执行命令: npm run build
+2025-01-10 10:44:07: 
+2025-01-10 10:44:07: > vue-admin-template@1.0.0 build
+2025-01-10 10:44:07: > set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build
+2025-01-10 10:44:07: 
+2025-01-10 10:44:08: 
+2025-01-10 10:44:22: WARNING  Compiled with 4 warnings10:44:22
+2025-01-10 10:44:22: 
+2025-01-10 10:44:22: warning  in ./src/components/user/UserProfile.vue?vue&type=script&lang=js
+2025-01-10 10:44:23: 
+2025-01-10 10:44:23: "export 'updatePassword' was not found in '@/api/user.js'
+2025-01-10 10:44:23: 
+2025-01-10 10:44:23: warning  in ./src/components/user/UserProfile.vue?vue&type=script&lang=js
+2025-01-10 10:44:23: 
+2025-01-10 10:44:23: "export 'updateUserInfo' (imported as '_updateUserInfo') was not found in '@/api/user.js'
+2025-01-10 10:44:23: 
+2025-01-10 10:44:23: warning
+2025-01-10 10:44:23: 
+2025-01-10 10:44:23: asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+2025-01-10 10:44:23: This can impact web performance.
+2025-01-10 10:44:23: Assets:
+2025-01-10 10:44:23: img/contact_non_selected@2x.a04d1532.png (303 KiB)
+2025-01-10 10:44:23: img/ionicons.a2c4a261.svg (542 KiB)
+2025-01-10 10:44:23: js/npm.codemirror.f7e1334d.js (377 KiB)
+2025-01-10 10:44:23: js/npm.emoji-mart-vue.1b57e5da.js (539 KiB)
+2025-01-10 10:44:23: css/npm.view-design.94bf04de.css (278 KiB)
+2025-01-10 10:44:23: js/npm.view-design.ad5ecf3e.js (643 KiB)
+2025-01-10 10:44:23: js/npm.vue-meditor.f356bf71.js (676 KiB)
+2025-01-10 10:44:23: 
+2025-01-10 10:44:23: warning
+2025-01-10 10:44:23: 
+2025-01-10 10:44:23: entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+2025-01-10 10:44:23: Entrypoints:
+2025-01-10 10:44:23: app (1.48 MiB)
+2025-01-10 10:44:23: js/runtime.447dcbe1.js
+2025-01-10 10:44:23: js/npm.core-js.19b3d73e.js
+2025-01-10 10:44:23: js/npm.babel.edbbbf4b.js
+2025-01-10 10:44:23: js/npm.axios.c331af1c.js
+2025-01-10 10:44:23: css/npm.view-design.94bf04de.css
+2025-01-10 10:44:23: js/npm.view-design.ad5ecf3e.js
+2025-01-10 10:44:23: css/npm.viewerjs.c6c0888f.css
+2025-01-10 10:44:23: js/npm.viewerjs.450bf54f.js
+2025-01-10 10:44:23: js/npm.formkit.c5a5d6cb.js
+2025-01-10 10:44:23: css/npm.element-ui.636ec213.css
+2025-01-10 10:44:23: js/npm.element-ui.29df6b7d.js
+2025-01-10 10:44:23: js/npm.v-viewer.7e9cfbac.js
+2025-01-10 10:44:23: js/npm.vue-router.17a46785.js
+2025-01-10 10:44:23: js/npm.vue.92b49f75.js
+2025-01-10 10:44:23: js/npm.vuex.132b34e2.js
+2025-01-10 10:44:23: css/app.d4bb0102.css
+2025-01-10 10:44:23: js/app.c8a9d41e.js
+2025-01-10 10:44:23: 
+2025-01-10 10:44:23: 
+2025-01-10 10:44:23: File                                      Size             Gzipped
+2025-01-10 10:44:23: 
+2025-01-10 10:44:23: dist\js\npm.vue-meditor.f356bf71.js       675.65 KiB       218.80 KiB
+2025-01-10 10:44:23: dist\js\npm.view-design.ad5ecf3e.js       642.72 KiB       146.21 KiB
+2025-01-10 10:44:23: dist\js\npm.emoji-mart-vue.1b57e5da.js    539.04 KiB       92.74 KiB
+2025-01-10 10:44:23: dist\js\npm.codemirror.f7e1334d.js        376.62 KiB       116.27 KiB
+2025-01-10 10:44:23: dist\js\npm.core-js.19b3d73e.js           121.39 KiB       41.79 KiB
+2025-01-10 10:44:23: dist\js\npm.vue-cropper.78b76695.js       110.38 KiB       26.05 KiB
+2025-01-10 10:44:23: dist\js\npm.vue.92b49f75.js               77.47 KiB        27.30 KiB
+2025-01-10 10:44:23: dist\js\npm.vcrontab.baae75be.js          58.31 KiB        13.86 KiB
+2025-01-10 10:44:23: dist\js\npm.jsencrypt.b6ed0d7f.js         56.18 KiB        17.09 KiB
+2025-01-10 10:44:23: dist\js\npm.riophae.54a3450b.js           55.08 KiB        14.74 KiB
+2025-01-10 10:44:23: dist\js\npm.sortablejs.d55ed06d.js        42.86 KiB        14.12 KiB
+2025-01-10 10:44:23: dist\js\npm.viewerjs.450bf54f.js          38.25 KiB        11.85 KiB
+2025-01-10 10:44:23: dist\js\chunk-06752274.90eea1da.js        37.98 KiB        11.52 KiB
+2025-01-10 10:44:23: dist\js\npm.lrz.553eefa4.js               33.98 KiB        12.88 KiB
+2025-01-10 10:44:23: dist\js\chunk-7d8eb554.967367af.js        32.54 KiB        10.77 KiB
+2025-01-10 10:44:23: dist\js\chunk-53a06c54.3410c43d.js        29.05 KiB        10.83 KiB
+2025-01-10 10:44:23: dist\js\npm.vue-router.17a46785.js        28.98 KiB        9.96 KiB
+2025-01-10 10:44:23: dist\js\chunk-7b2a5ea2.97265b67.js        27.68 KiB        8.88 KiB
+2025-01-10 10:44:23: dist\js\npm.vuedraggable.ebcc8de0.js      27.17 KiB        9.86 KiB
+2025-01-10 10:44:23: dist\js\chunk-8e55bec4.0d4df359.js        26.38 KiB        12.77 KiB
+2025-01-10 10:44:23: dist\js\chunk-500ae6c9.7f0df2ad.js        21.73 KiB        6.42 KiB
+2025-01-10 10:44:23: dist\js\npm.vue-select.5e04d683.js        20.73 KiB        6.37 KiB
+2025-01-10 10:44:23: dist\js\app.c8a9d41e.js                   18.51 KiB        6.40 KiB
+2025-01-10 10:44:23: dist\js\chunk-9225c0fe.20837bb5.js        17.64 KiB        4.56 KiB
+2025-01-10 10:44:23: dist\js\npm.babel.edbbbf4b.js             16.28 KiB        4.54 KiB
+2025-01-10 10:44:23: dist\js\chunk-f5f55cfc.f9ee1e3d.js        15.74 KiB        5.19 KiB
+2025-01-10 10:44:23: dist\js\chunk-6efd9400.90595ef0.js        15.39 KiB        4.61 KiB
+2025-01-10 10:44:23: dist\js\chunk-271bdb58.b7ff0d2f.js        14.52 KiB        4.73 KiB
+2025-01-10 10:44:23: dist\js\npm.axios.c331af1c.js             13.76 KiB        4.70 KiB
+2025-01-10 10:44:23: dist\js\chunk-1a287f16.136088a8.js        12.91 KiB        4.03 KiB
+2025-01-10 10:44:23: dist\js\npm.vuex.132b34e2.js              12.46 KiB        3.90 KiB
+2025-01-10 10:44:23: dist\js\npm.v-viewer.7e9cfbac.js          12.05 KiB        5.00 KiB
+2025-01-10 10:44:23: dist\js\chunk-6bd9f911.3eaf2810.js        7.43 KiB         2.88 KiB
+2025-01-10 10:44:23: dist\js\npm.formkit.c5a5d6cb.js           7.24 KiB         2.93 KiB
+2025-01-10 10:44:23: dist\js\runtime.447dcbe1.js               6.11 KiB         2.35 KiB
+2025-01-10 10:44:23: dist\js\chunk-63bb8f9b.95e5411d.js        5.80 KiB         2.33 KiB
+2025-01-10 10:44:23: dist\js\chunk-0d8910d0.ba5a9a2e.js        5.37 KiB         2.21 KiB
+2025-01-10 10:44:23: dist\js\chunk-52d0ee5e.65ee2be0.js        4.91 KiB         2.12 KiB
+2025-01-10 10:44:23: dist\js\chunk-1e29fbdf.d801dd23.js        4.67 KiB         1.84 KiB
+2025-01-10 10:44:23: dist\js\chunk-1b907296.8263864c.js        4.53 KiB         1.70 KiB
+2025-01-10 10:44:23: dist\js\chunk-2d0aba9c.6440e68b.js        3.91 KiB         0.73 KiB
+2025-01-10 10:44:23: dist\js\chunk-cbd27c42.0cf9e2cf.js        1.95 KiB         1.06 KiB
+2025-01-10 10:44:23: dist\js\chunk-b32710d4.dd70b74a.js        1.68 KiB         0.95 KiB
+2025-01-10 10:44:23: dist\js\chunk-a9848d9c.26cb9465.js        0.70 KiB         0.49 KiB
+2025-01-10 10:44:23: dist\js\chunk-2d0c1074.3e72f48a.js        0.47 KiB         0.35 KiB
+2025-01-10 10:44:23: dist\js\chunk-2d0cc798.ea0af5f6.js        0.45 KiB         0.34 KiB
+2025-01-10 10:44:23: dist\js\chunk-2d0e13a4.d53c46ab.js        0.45 KiB         0.34 KiB
+2025-01-10 10:44:23: dist\js\npm.element-ui.29df6b7d.js        0.15 KiB         0.14 KiB
+2025-01-10 10:44:23: dist\css\npm.view-design.94bf04de.css     277.93 KiB       39.35 KiB
+2025-01-10 10:44:23: dist\css\npm.element-ui.636ec213.css      235.73 KiB       35.78 KiB
+2025-01-10 10:44:23: dist\css\chunk-271bdb58.ce4e8712.css      28.48 KiB        3.99 KiB
+2025-01-10 10:44:23: dist\css\npm.riophae.84f98409.css         26.10 KiB        4.86 KiB
+2025-01-10 10:44:23: dist\css\chunk-9225c0fe.b5a23984.css      23.06 KiB        3.79 KiB
+2025-01-10 10:44:23: dist\css\chunk-7d8eb554.95a219bc.css      18.33 KiB        3.61 KiB
+2025-01-10 10:44:23: dist\css\chunk-7b2a5ea2.7f65c4cb.css      15.62 KiB        2.77 KiB
+2025-01-10 10:44:23: dist\css\chunk-06752274.5d0c153b.css      12.14 KiB        2.34 KiB
+2025-01-10 10:44:23: dist\css\chunk-6efd9400.27de8b81.css      11.81 KiB        2.10 KiB
+2025-01-10 10:44:23: dist\css\chunk-500ae6c9.10b0706e.css      11.35 KiB        2.30 KiB
+2025-01-10 10:44:23: dist\css\npm.codemirror.d1fc7e1b.css      11.07 KiB        3.14 KiB
+2025-01-10 10:44:23: dist\css\npm.vue-select.56c41540.css      8.97 KiB         1.91 KiB
+2025-01-10 10:44:23: dist\css\npm.viewerjs.c6c0888f.css        8.02 KiB         3.01 KiB
+2025-01-10 10:44:23: dist\css\chunk-8e55bec4.bab537f8.css      5.77 KiB         1.41 KiB
+2025-01-10 10:44:23: dist\css\chunk-1a287f16.9cd8f9c3.css      5.31 KiB         1.30 KiB
+2025-01-10 10:44:23: dist\css\chunk-6bd9f911.52a4fb81.css      3.71 KiB         0.98 KiB
+2025-01-10 10:44:23: dist\css\app.d4bb0102.css                 2.11 KiB         0.68 KiB
+2025-01-10 10:44:23: dist\css\chunk-1b907296.8d0badf6.css      1.88 KiB         0.53 KiB
+2025-01-10 10:44:23: dist\css\chunk-f5f55cfc.c8af307f.css      1.31 KiB         0.44 KiB
+2025-01-10 10:44:23: dist\css\chunk-b32710d4.9d70471b.css      0.71 KiB         0.33 KiB
+2025-01-10 10:44:23: dist\css\chunk-1e29fbdf.53ed46be.css      0.49 KiB         0.28 KiB
+2025-01-10 10:44:23: dist\css\chunk-a9848d9c.df55b327.css      0.32 KiB         0.21 KiB
+2025-01-10 10:44:23: dist\css\chunk-cbd27c42.473b315b.css      0.14 KiB         0.11 KiB
+2025-01-10 10:44:23: dist\css\chunk-0d8910d0.f132fa11.css      0.11 KiB         0.12 KiB
+2025-01-10 10:44:23: dist\css\chunk-52d0ee5e.80407536.css      0.11 KiB         0.12 KiB
+2025-01-10 10:44:23: 
+2025-01-10 10:44:23: Images and other types of assets omitted.
+2025-01-10 10:44:23: 
+2025-01-10 10:44:23: DONE  Build complete. The dist directory is ready to be deployed.
+2025-01-10 10:44:23: INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
+2025-01-10 10:44:23: 
+2025-01-10 10:44:24: 构建过程中发现警告:
+2025-01-10 10:44:24: WARNING  Compiled with 4 warnings10:44:22
+2025-01-10 10:44:24: 开始压缩打包文件...
+2025-01-10 10:44:25: 压缩完成。
+2025-01-10 10:44:25: 开始上传包到服务器...
+2025-01-10 10:44:25: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:44:25: Authentication (password) successful!
+2025-01-10 10:44:25: [chan 0] Opened sftp connection (server version 3)
+2025-01-10 10:44:33: [chan 0] sftp session closed.
+2025-01-10 10:44:33: 上传成功。
+2025-01-10 10:44:33: 开始备份现有项目...
+2025-01-10 10:44:33: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:44:33: Authentication (password) successful!
+2025-01-10 10:44:33: 备份成功。
+2025-01-10 10:44:33: 开始在服务器上解压和重命名...
+2025-01-10 10:44:33: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 10:44:33: Authentication (password) successful!
+2025-01-10 10:44:33: 部署完成
+2025-01-10 10:44:33: 解压和重命名成功。
+2025-01-10 10:44:33: 解压和重命名成功。
+2025-01-10 10:44:33: 项目部署完成！
+2025-01-10 10:44:35: 配置保存成功
+2025-01-10 11:05:14: 配置加载成功
+2025-01-10 11:05:16: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:05:16: Authentication (password) successful!
+2025-01-10 11:05:26: 配置加载成功
+2025-01-10 11:05:33: 配置加载成功
+2025-01-10 11:05:36: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:05:36: Authentication (password) successful!
+2025-01-10 11:05:37: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:05:37: Authentication (password) successful!
+2025-01-10 11:06:44: 配置加载成功
+2025-01-10 11:07:45: 配置加载成功
+2025-01-10 11:07:48: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:07:48: Authentication (password) successful!
+2025-01-10 11:09:51: 配置加载成功
+2025-01-10 11:09:54: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:09:54: Authentication (password) successful!
+2025-01-10 11:10:43: Connected (version 2.0, client Go)
+2025-01-10 11:10:44: Authentication (password) failed.
+2025-01-10 11:10:54: Connected (version 2.0, client Go)
+2025-01-10 11:10:55: Authentication (password) successful!
+2025-01-10 11:11:36: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:11:38: Authentication (password) failed.
+2025-01-10 11:11:46: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:11:46: Authentication (password) successful!
+2025-01-10 11:11:48: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:11:48: Authentication (password) successful!
+2025-01-10 11:11:54: 开始打包项目...
+2025-01-10 11:11:54: 执行命令: npm run build
+2025-01-10 11:11:56: 
+2025-01-10 11:11:56: > vue-admin-template@1.0.0 build
+2025-01-10 11:11:56: > set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build
+2025-01-10 11:11:56: 
+2025-01-10 11:11:57: 
+2025-01-10 11:12:12: WARNING  Compiled with 4 warnings11:12:12
+2025-01-10 11:12:12: 
+2025-01-10 11:12:12: warning  in ./src/components/user/UserProfile.vue?vue&type=script&lang=js
+2025-01-10 11:12:12: 
+2025-01-10 11:12:12: "export 'updatePassword' was not found in '@/api/user.js'
+2025-01-10 11:12:12: 
+2025-01-10 11:12:12: warning  in ./src/components/user/UserProfile.vue?vue&type=script&lang=js
+2025-01-10 11:12:12: 
+2025-01-10 11:12:12: "export 'updateUserInfo' (imported as '_updateUserInfo') was not found in '@/api/user.js'
+2025-01-10 11:12:12: 
+2025-01-10 11:12:12: warning
+2025-01-10 11:12:12: 
+2025-01-10 11:12:12: asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+2025-01-10 11:12:12: This can impact web performance.
+2025-01-10 11:12:12: Assets:
+2025-01-10 11:12:12: img/contact_non_selected@2x.a04d1532.png (303 KiB)
+2025-01-10 11:12:12: img/ionicons.a2c4a261.svg (542 KiB)
+2025-01-10 11:12:12: js/npm.codemirror.f7e1334d.js (377 KiB)
+2025-01-10 11:12:12: js/npm.emoji-mart-vue.1b57e5da.js (539 KiB)
+2025-01-10 11:12:12: css/npm.view-design.94bf04de.css (278 KiB)
+2025-01-10 11:12:12: js/npm.view-design.ad5ecf3e.js (643 KiB)
+2025-01-10 11:12:12: js/npm.vue-meditor.f356bf71.js (676 KiB)
+2025-01-10 11:12:12: 
+2025-01-10 11:12:12: warning
+2025-01-10 11:12:12: 
+2025-01-10 11:12:12: entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+2025-01-10 11:12:12: Entrypoints:
+2025-01-10 11:12:12: app (1.48 MiB)
+2025-01-10 11:12:12: js/runtime.447dcbe1.js
+2025-01-10 11:12:12: js/npm.core-js.19b3d73e.js
+2025-01-10 11:12:12: js/npm.babel.edbbbf4b.js
+2025-01-10 11:12:12: js/npm.axios.c331af1c.js
+2025-01-10 11:12:12: css/npm.view-design.94bf04de.css
+2025-01-10 11:12:12: js/npm.view-design.ad5ecf3e.js
+2025-01-10 11:12:12: css/npm.viewerjs.c6c0888f.css
+2025-01-10 11:12:12: js/npm.viewerjs.450bf54f.js
+2025-01-10 11:12:12: js/npm.formkit.c5a5d6cb.js
+2025-01-10 11:12:12: css/npm.element-ui.636ec213.css
+2025-01-10 11:12:12: js/npm.element-ui.29df6b7d.js
+2025-01-10 11:12:12: js/npm.v-viewer.7e9cfbac.js
+2025-01-10 11:12:12: js/npm.vue-router.17a46785.js
+2025-01-10 11:12:12: js/npm.vue.92b49f75.js
+2025-01-10 11:12:12: js/npm.vuex.132b34e2.js
+2025-01-10 11:12:12: css/app.d4bb0102.css
+2025-01-10 11:12:12: js/app.c8a9d41e.js
+2025-01-10 11:12:12: 
+2025-01-10 11:12:12: 
+2025-01-10 11:12:12: File                                      Size             Gzipped
+2025-01-10 11:12:12: 
+2025-01-10 11:12:12: dist\js\npm.vue-meditor.f356bf71.js       675.65 KiB       218.80 KiB
+2025-01-10 11:12:12: dist\js\npm.view-design.ad5ecf3e.js       642.72 KiB       146.21 KiB
+2025-01-10 11:12:12: dist\js\npm.emoji-mart-vue.1b57e5da.js    539.04 KiB       92.74 KiB
+2025-01-10 11:12:12: dist\js\npm.codemirror.f7e1334d.js        376.62 KiB       116.27 KiB
+2025-01-10 11:12:12: dist\js\npm.core-js.19b3d73e.js           121.39 KiB       41.79 KiB
+2025-01-10 11:12:12: dist\js\npm.vue-cropper.78b76695.js       110.38 KiB       26.05 KiB
+2025-01-10 11:12:12: dist\js\npm.vue.92b49f75.js               77.47 KiB        27.30 KiB
+2025-01-10 11:12:12: dist\js\npm.vcrontab.baae75be.js          58.31 KiB        13.86 KiB
+2025-01-10 11:12:12: dist\js\npm.jsencrypt.b6ed0d7f.js         56.18 KiB        17.09 KiB
+2025-01-10 11:12:12: dist\js\npm.riophae.54a3450b.js           55.08 KiB        14.74 KiB
+2025-01-10 11:12:12: dist\js\npm.sortablejs.d55ed06d.js        42.86 KiB        14.12 KiB
+2025-01-10 11:12:12: dist\js\npm.viewerjs.450bf54f.js          38.25 KiB        11.85 KiB
+2025-01-10 11:12:12: dist\js\chunk-06752274.90eea1da.js        37.98 KiB        11.52 KiB
+2025-01-10 11:12:12: dist\js\npm.lrz.553eefa4.js               33.98 KiB        12.88 KiB
+2025-01-10 11:12:12: dist\js\chunk-7d8eb554.967367af.js        32.54 KiB        10.77 KiB
+2025-01-10 11:12:12: dist\js\chunk-53a06c54.3410c43d.js        29.05 KiB        10.83 KiB
+2025-01-10 11:12:12: dist\js\npm.vue-router.17a46785.js        28.98 KiB        9.96 KiB
+2025-01-10 11:12:12: dist\js\chunk-7b2a5ea2.97265b67.js        27.68 KiB        8.88 KiB
+2025-01-10 11:12:12: dist\js\npm.vuedraggable.ebcc8de0.js      27.17 KiB        9.86 KiB
+2025-01-10 11:12:12: dist\js\chunk-8e55bec4.0d4df359.js        26.38 KiB        12.77 KiB
+2025-01-10 11:12:12: dist\js\chunk-500ae6c9.7f0df2ad.js        21.73 KiB        6.42 KiB
+2025-01-10 11:12:12: dist\js\npm.vue-select.5e04d683.js        20.73 KiB        6.37 KiB
+2025-01-10 11:12:12: dist\js\app.c8a9d41e.js                   18.51 KiB        6.40 KiB
+2025-01-10 11:12:12: dist\js\chunk-9225c0fe.20837bb5.js        17.64 KiB        4.56 KiB
+2025-01-10 11:12:12: dist\js\npm.babel.edbbbf4b.js             16.28 KiB        4.54 KiB
+2025-01-10 11:12:12: dist\js\chunk-f5f55cfc.f9ee1e3d.js        15.74 KiB        5.19 KiB
+2025-01-10 11:12:12: dist\js\chunk-6efd9400.90595ef0.js        15.39 KiB        4.61 KiB
+2025-01-10 11:12:12: dist\js\chunk-271bdb58.b7ff0d2f.js        14.52 KiB        4.73 KiB
+2025-01-10 11:12:12: dist\js\npm.axios.c331af1c.js             13.76 KiB        4.70 KiB
+2025-01-10 11:12:12: dist\js\chunk-1a287f16.136088a8.js        12.91 KiB        4.03 KiB
+2025-01-10 11:12:12: dist\js\npm.vuex.132b34e2.js              12.46 KiB        3.90 KiB
+2025-01-10 11:12:12: dist\js\npm.v-viewer.7e9cfbac.js          12.05 KiB        5.00 KiB
+2025-01-10 11:12:12: dist\js\chunk-6bd9f911.3eaf2810.js        7.43 KiB         2.88 KiB
+2025-01-10 11:12:12: dist\js\npm.formkit.c5a5d6cb.js           7.24 KiB         2.93 KiB
+2025-01-10 11:12:12: dist\js\runtime.447dcbe1.js               6.11 KiB         2.35 KiB
+2025-01-10 11:12:12: dist\js\chunk-63bb8f9b.95e5411d.js        5.80 KiB         2.33 KiB
+2025-01-10 11:12:12: dist\js\chunk-0d8910d0.ba5a9a2e.js        5.37 KiB         2.21 KiB
+2025-01-10 11:12:12: dist\js\chunk-52d0ee5e.65ee2be0.js        4.91 KiB         2.12 KiB
+2025-01-10 11:12:12: dist\js\chunk-1e29fbdf.d801dd23.js        4.67 KiB         1.84 KiB
+2025-01-10 11:12:12: dist\js\chunk-1b907296.8263864c.js        4.53 KiB         1.70 KiB
+2025-01-10 11:12:12: dist\js\chunk-2d0aba9c.6440e68b.js        3.91 KiB         0.73 KiB
+2025-01-10 11:12:12: dist\js\chunk-cbd27c42.0cf9e2cf.js        1.95 KiB         1.06 KiB
+2025-01-10 11:12:12: dist\js\chunk-b32710d4.dd70b74a.js        1.68 KiB         0.95 KiB
+2025-01-10 11:12:12: dist\js\chunk-a9848d9c.26cb9465.js        0.70 KiB         0.49 KiB
+2025-01-10 11:12:12: dist\js\chunk-2d0c1074.3e72f48a.js        0.47 KiB         0.35 KiB
+2025-01-10 11:12:12: dist\js\chunk-2d0cc798.ea0af5f6.js        0.45 KiB         0.34 KiB
+2025-01-10 11:12:12: dist\js\chunk-2d0e13a4.d53c46ab.js        0.45 KiB         0.34 KiB
+2025-01-10 11:12:12: dist\js\npm.element-ui.29df6b7d.js        0.15 KiB         0.14 KiB
+2025-01-10 11:12:12: dist\css\npm.view-design.94bf04de.css     277.93 KiB       39.35 KiB
+2025-01-10 11:12:12: dist\css\npm.element-ui.636ec213.css      235.73 KiB       35.78 KiB
+2025-01-10 11:12:12: dist\css\chunk-271bdb58.ce4e8712.css      28.48 KiB        3.99 KiB
+2025-01-10 11:12:12: dist\css\npm.riophae.84f98409.css         26.10 KiB        4.86 KiB
+2025-01-10 11:12:12: dist\css\chunk-9225c0fe.b5a23984.css      23.06 KiB        3.79 KiB
+2025-01-10 11:12:12: dist\css\chunk-7d8eb554.95a219bc.css      18.33 KiB        3.61 KiB
+2025-01-10 11:12:12: dist\css\chunk-7b2a5ea2.7f65c4cb.css      15.62 KiB        2.77 KiB
+2025-01-10 11:12:12: dist\css\chunk-06752274.5d0c153b.css      12.14 KiB        2.34 KiB
+2025-01-10 11:12:12: dist\css\chunk-6efd9400.27de8b81.css      11.81 KiB        2.10 KiB
+2025-01-10 11:12:12: dist\css\chunk-500ae6c9.10b0706e.css      11.35 KiB        2.30 KiB
+2025-01-10 11:12:12: dist\css\npm.codemirror.d1fc7e1b.css      11.07 KiB        3.14 KiB
+2025-01-10 11:12:12: dist\css\npm.vue-select.56c41540.css      8.97 KiB         1.91 KiB
+2025-01-10 11:12:12: dist\css\npm.viewerjs.c6c0888f.css        8.02 KiB         3.01 KiB
+2025-01-10 11:12:12: dist\css\chunk-8e55bec4.bab537f8.css      5.77 KiB         1.41 KiB
+2025-01-10 11:12:12: dist\css\chunk-1a287f16.9cd8f9c3.css      5.31 KiB         1.30 KiB
+2025-01-10 11:12:12: dist\css\chunk-6bd9f911.52a4fb81.css      3.71 KiB         0.98 KiB
+2025-01-10 11:12:12: dist\css\app.d4bb0102.css                 2.11 KiB         0.68 KiB
+2025-01-10 11:12:12: dist\css\chunk-1b907296.8d0badf6.css      1.88 KiB         0.53 KiB
+2025-01-10 11:12:12: dist\css\chunk-f5f55cfc.c8af307f.css      1.31 KiB         0.44 KiB
+2025-01-10 11:12:12: dist\css\chunk-b32710d4.9d70471b.css      0.71 KiB         0.33 KiB
+2025-01-10 11:12:12: dist\css\chunk-1e29fbdf.53ed46be.css      0.49 KiB         0.28 KiB
+2025-01-10 11:12:12: dist\css\chunk-a9848d9c.df55b327.css      0.32 KiB         0.21 KiB
+2025-01-10 11:12:12: dist\css\chunk-cbd27c42.473b315b.css      0.14 KiB         0.11 KiB
+2025-01-10 11:12:12: dist\css\chunk-0d8910d0.f132fa11.css      0.11 KiB         0.12 KiB
+2025-01-10 11:12:12: dist\css\chunk-52d0ee5e.80407536.css      0.11 KiB         0.12 KiB
+2025-01-10 11:12:12: 
+2025-01-10 11:12:12: Images and other types of assets omitted.
+2025-01-10 11:12:12: 
+2025-01-10 11:12:12: DONE  Build complete. The dist directory is ready to be deployed.
+2025-01-10 11:12:12: INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
+2025-01-10 11:12:12: 
+2025-01-10 11:12:13: 构建过程中发现警告:
+2025-01-10 11:12:13: WARNING  Compiled with 4 warnings11:12:12
+2025-01-10 11:12:13: 开始压缩打包文件...
+2025-01-10 11:12:14: 压缩完成。
+2025-01-10 11:12:14: 开始上传包到服务器...
+2025-01-10 11:12:14: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:12:14: Authentication (password) successful!
+2025-01-10 11:12:15: [chan 0] Opened sftp connection (server version 3)
+2025-01-10 11:12:22: [chan 0] sftp session closed.
+2025-01-10 11:12:22: 上传成功。
+2025-01-10 11:12:22: 开始备份现有项目...
+2025-01-10 11:12:22: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:12:22: Authentication (password) successful!
+2025-01-10 11:12:22: 备份成功。
+2025-01-10 11:12:22: 开始在服务器上解压和重命名...
+2025-01-10 11:12:22: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:12:22: Authentication (password) successful!
+2025-01-10 11:12:23: 部署完成
+2025-01-10 11:12:23: 解压和重命名成功。
+2025-01-10 11:12:23: 解压和重命名成功。
+2025-01-10 11:12:23: 项目部署完成！
+2025-01-10 11:12:25: 配置保存成功
+2025-01-10 11:12:26: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:12:26: Authentication (password) successful!
+2025-01-10 11:12:28: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:12:28: Authentication (password) successful!
+2025-01-10 11:12:29: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:12:29: Authentication (password) successful!
+2025-01-10 11:12:31: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:12:31: Authentication (password) successful!
+2025-01-10 11:12:32: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:12:32: Authentication (password) successful!
+2025-01-10 11:12:34: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:12:34: Authentication (password) successful!
+2025-01-10 11:12:35: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:12:35: Authentication (password) successful!
+2025-01-10 11:12:37: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:12:37: Authentication (password) successful!
+2025-01-10 11:12:38: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:12:38: Authentication (password) successful!
+2025-01-10 11:12:39: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:12:39: Authentication (password) successful!
+2025-01-10 11:12:40: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:12:40: Authentication (password) successful!
+2025-01-10 11:12:41: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:12:42: Authentication (password) successful!
+2025-01-10 11:14:21: 配置加载成功
+2025-01-10 11:14:51: 配置加载成功
+2025-01-10 11:14:52: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:14:52: Authentication (password) successful!
+2025-01-10 11:15:23: Connected (version 2.0, client Go)
+2025-01-10 11:15:24: Authentication (password) failed.
+2025-01-10 11:15:40: Connected (version 2.0, client Go)
+2025-01-10 11:15:41: Authentication (password) failed.
+2025-01-10 11:15:42: Connected (version 2.0, client Go)
+2025-01-10 11:15:42: Authentication (password) failed.
+2025-01-10 11:16:35: 配置加载成功
+2025-01-10 11:17:01: Connected (version 2.0, client Go)
+2025-01-10 11:17:02: Authentication (password) failed.
+2025-01-10 11:17:04: Connected (version 2.0, client Go)
+2025-01-10 11:17:04: Authentication (password) failed.
+2025-01-10 11:17:07: 开始打包项目...
+2025-01-10 11:17:07: 执行命令: npm run build
+2025-01-10 11:17:08: 
+2025-01-10 11:17:08: > vue-admin-template@1.0.0 build
+2025-01-10 11:17:08: > set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build
+2025-01-10 11:17:08: 
+2025-01-10 11:17:10: 
+2025-01-10 11:17:21: 配置加载成功
+2025-01-10 11:17:49: Connected (version 2.0, client Go)
+2025-01-10 11:17:49: Authentication (password) failed.
+2025-01-10 11:17:51: Connected (version 2.0, client Go)
+2025-01-10 11:17:51: Authentication (password) failed.
+2025-01-10 11:18:04: Connected (version 2.0, client Go)
+2025-01-10 11:18:04: Authentication (password) failed.
+2025-01-10 11:18:16: Connected (version 2.0, client Go)
+2025-01-10 11:18:16: Authentication (password) failed.
+2025-01-10 11:18:19: Connected (version 2.0, client Go)
+2025-01-10 11:18:19: Authentication (password) failed.
+2025-01-10 11:18:21: Connected (version 2.0, client Go)
+2025-01-10 11:18:21: Authentication (password) failed.
+2025-01-10 11:18:23: Connected (version 2.0, client Go)
+2025-01-10 11:18:23: Authentication (password) failed.
+2025-01-10 11:18:26: Connected (version 2.0, client Go)
+2025-01-10 11:18:26: Authentication (password) failed.
+2025-01-10 11:18:28: Connected (version 2.0, client Go)
+2025-01-10 11:18:28: Authentication (password) failed.
+2025-01-10 11:18:29: Connected (version 2.0, client Go)
+2025-01-10 11:18:29: Authentication (password) failed.
+2025-01-10 11:18:31: Connected (version 2.0, client Go)
+2025-01-10 11:18:31: Authentication (password) failed.
+2025-01-10 11:19:31: 配置加载成功
+2025-01-10 11:19:33: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:19:33: Authentication (password) successful!
+2025-01-10 11:19:35: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:19:35: Authentication (password) successful!
+2025-01-10 11:19:37: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:19:38: Authentication (password) successful!
+2025-01-10 11:20:04: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:20:04: Authentication (password) successful!
+2025-01-10 11:21:48: 配置加载成功
+2025-01-10 11:21:52: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:21:52: Authentication (password) successful!
+2025-01-10 11:21:57: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:21:57: Authentication (password) successful!
+2025-01-10 11:22:03: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:22:03: Authentication (password) successful!
+2025-01-10 11:24:22: 配置加载成功
+2025-01-10 11:24:28: Connected (version 2.0, client OpenSSH_7.4)
+2025-01-10 11:24:28: Authentication (password) successful!
+2025-01-10 11:24:49: Connected (version 2.0, client Go)
+2025-01-10 11:24:49: Authentication (password) failed.
+2025-01-10 11:24:49: SSH 连接失败: Authentication failed.
+2025-01-10 11:24:51: Connected (version 2.0, client Go)
+2025-01-10 11:24:51: Authentication (password) failed.
+2025-01-10 11:24:51: SSH 连接失败: Authentication failed.
