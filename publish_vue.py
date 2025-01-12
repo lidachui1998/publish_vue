@@ -307,14 +307,14 @@ class App:
         with self.deploy_lock:
             try:
                 start_time = time.time()
-                self.deploy()
+                success = self.deploy()  # 修改为返回布尔值表示部署成功与否
                 end_time = time.time()
 
-                # 记录部署历史到单独的文件
+                # 记录部署历史
                 deployment_record = {
                     "timestamp": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                     "duration": end_time - start_time,
-                    "status": "success",
+                    "status": "success" if success else "failed",
                     "project_name": self.new_project_name.get(),
                     "server": self.server_address.get()
                 }
@@ -386,6 +386,8 @@ class App:
                 # 确保最后切回工具目录
                 os.chdir(original_dir)
 
+            # 在成功完成所有步骤后返回 True
+            return True
         except Exception as e:
             self.log(f"部署失败: {str(e)}", "error")
             return False
@@ -940,8 +942,8 @@ echo "部署完成"
                 with open(self.history_file, 'r', encoding='utf-8') as f:
                     history = json.load(f)
             
-            # 添加新记录
-            history.append(record)
+            # 添加新记录到开头(最新的记录显示在最前面)
+            history.insert(0, record)
             
             # 保存历史记录
             with open(self.history_file, 'w', encoding='utf-8') as f:
