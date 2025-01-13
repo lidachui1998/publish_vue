@@ -1,19 +1,19 @@
+import base64
+import csv
+import json
+import logging
 import os
+import socket
+import subprocess
+import sys
 import tarfile
 import threading
-import tkinter as tk
-from tkinter import scrolledtext, filedialog, messagebox, ttk
-import paramiko
-import subprocess
-from datetime import datetime
-import json
-import base64
-import logging
 import time
-import socket
-import csv
-from cryptography.fernet import Fernet
-import sys
+import tkinter as tk
+from datetime import datetime
+from tkinter import scrolledtext, filedialog, messagebox, ttk
+
+import paramiko
 
 
 class App:
@@ -522,31 +522,37 @@ class App:
             shell=True,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            universal_newlines=True
+            universal_newlines=True,
+            encoding='utf-8',
+            errors='replace'  # 遇到编码错误时用替换字符代替，避免程序崩溃
         )
 
         output = []
-        for stdout_line in iter(process.stdout.readline, ""):
-            line = stdout_line.strip()
-            output.append(line)
-            self.log(line)
+        try:
+            for stdout_line in iter(process.stdout.readline, ""):
+                line = stdout_line.strip()
+                output.append(line)
+                self.log(line)
 
-        process.stdout.close()
-        stderr_output = process.stderr.read()
-        process.stderr.close()
-        process.wait()
+            process.stdout.close()
+            stderr_output = process.stderr.read()
+            process.stderr.close()
+            process.wait()
 
-        if process.returncode != 0:
-            self.log(f"命令 {command} 执行失败，返回码: {process.returncode}", "error")
-            if stderr_output:
-                self.log(f"错误: {stderr_output.strip()}", "error")
+            if process.returncode != 0:
+                self.log(f"命令 {command} 执行失败，返回码: {process.returncode}", "error")
+                if stderr_output:
+                    self.log(f"错误: {stderr_output.strip()}", "error")
+                return False
+
+            # 检查构建警告
+            if command == "npm run build":
+                return self.check_build_warnings('\n'.join(output))
+
+            return True
+        except Exception as e:
+            self.log(f"执行命令时发生异常: {str(e)}", "error")
             return False
-
-        # 检查构建警告
-        if command == "npm run build":
-            return self.check_build_warnings('\n'.join(output))
-
-        return True
 
     def check_build_warnings(self, output):
         """检查构建警告和错误"""
@@ -612,7 +618,7 @@ else
 fi
 """
             stdin, stdout, stderr = ssh.exec_command(commands)
-            result = stdout.read().decode().strip()
+            result = stdout.read().decode('utf-8', 'replace').strip()
             
             if "备份成功" in result:
                 self.log(f"项目已备份到: {backup_path}")
@@ -667,8 +673,8 @@ echo "部署完成"
             exit_status = stdout.channel.recv_exit_status()
 
             # 收集所有输出
-            out = stdout.read().decode().strip()
-            err = stderr.read().decode().strip()
+            out = stdout.read().decode('utf-8', 'replace').strip()
+            err = stderr.read().decode('utf-8', 'replace').strip()
 
             if exit_status != 0:
                 self.log(f"命令执行失败，退出码：{exit_status}")
@@ -682,7 +688,7 @@ echo "部署完成"
             # 验证部署结果
             verify_cmd = f"test -d '{remote_path}/{new_project_name}' && echo 'OK'"
             stdin, stdout, stderr = ssh.exec_command(verify_cmd)
-            result = stdout.read().decode().strip()
+            result = stdout.read().decode('utf-8', 'replace').strip()
 
             if result != 'OK':
                 self.log("部署验证失败：目标目录不存在")
@@ -1628,7 +1634,7 @@ class DeploymentHistory:
             # 先检查备份文件是否存在
             check_command = f"test -d '{backup_path}' && echo 'exists' || echo 'not exists'"
             stdin, stdout, stderr = ssh.exec_command(check_command)
-            if stdout.read().decode().strip() != 'exists':
+            if stdout.read().decode('utf-8', 'replace').strip() != 'exists':
                 raise Exception(f"备份文件不存在: {backup_path}")
             
             commands = f"""
@@ -1646,8 +1652,8 @@ echo "回滚成功"
 """
             # 执行命令
             stdin, stdout, stderr = ssh.exec_command(commands)
-            result = stdout.read().decode().strip()
-            error = stderr.read().decode().strip()
+            result = stdout.read().decode('utf-8', 'replace').strip()
+            error = stderr.read().decode('utf-8', 'replace').strip()
             
             if "回滚成功" in result:
                 messagebox.showinfo("成功", "项目已成功回滚到选中版本")
@@ -2203,6 +2209,9 @@ class ServerConfigDialog:
         self.initial_data = initial_data or {}
         self.result = None
         
+        # 保存父窗口引用，用于创建SSH连接
+        self.parent = parent
+        
         self.create_widgets()
         
         # 如果是编辑模式，填充现有数据
@@ -2273,6 +2282,35 @@ class ServerConfigDialog:
             fg='white'
         ).pack(side=tk.LEFT, padx=5)
 
+        # 修改远程路径输入区域，添加浏览按钮
+        label = tk.Label(
+            self.dialog,
+            text="远程路径",
+            font=self.fonts['body'],
+            bg=self.colors['surface']
+        )
+        label.grid(row=5, column=0, padx=5, pady=5, sticky="e")
+        
+        path_frame = tk.Frame(self.dialog, bg=self.colors['surface'])
+        path_frame.grid(row=5, column=1, padx=5, pady=5, sticky="ew")
+        
+        entry = tk.Entry(
+            path_frame,
+            textvariable=self.remote_path_var,
+            font=self.fonts['body']
+        )
+        entry.pack(side=tk.LEFT, fill="x", expand=True)
+        
+        browse_btn = tk.Button(
+            path_frame,
+            text="选择目录",
+            command=self.browse_remote_directory,
+            font=self.fonts['button'],
+            bg=self.colors['primary'],
+            fg='white'
+        )
+        browse_btn.pack(side=tk.LEFT, padx=(5, 0))
+
     def on_ok(self):
         # 验证输入
         if not all([
@@ -2313,6 +2351,48 @@ class ServerConfigDialog:
         self.dialog.grab_set()
         self.dialog.wait_window()
         return self.result
+
+    def browse_remote_directory(self):
+        """浏览远程目录"""
+        try:
+            # 验证必要的连接信息
+            if not all([
+                self.address_var.get(),
+                self.username_var.get(),
+                self.password_var.get()
+            ]):
+                messagebox.showwarning("警告", "请先填写服务器地址、用户名和密码！")
+                return
+
+            # 创建SSH连接
+            ssh = paramiko.SSHClient()
+            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            ssh.connect(
+                self.address_var.get(),
+                port=int(self.port_var.get()),
+                username=self.username_var.get(),
+                password=self.password_var.get(),
+                timeout=5
+            )
+
+            # 获取当前选择的远程路径
+            current_remote_path = self.remote_path_var.get()
+
+            # 创建目录选择对话框
+            dialog = RemoteDirectoryDialog(self.dialog, ssh, current_remote_path)
+            selected_path = dialog.show()
+
+            if selected_path:
+                self.remote_path_var.set(selected_path)
+
+            ssh.close()
+
+        except socket.timeout:
+            messagebox.showerror("错误", "连接超时，请检查服务器地址是否正确！")
+        except paramiko.ssh_exception.AuthenticationException:
+            messagebox.showerror("错误", "认证失败，请检查用户名和密码！")
+        except Exception as e:
+            messagebox.showerror("错误", f"连接服务器失败: {str(e)}")
 
 
 class TestConnectionDialog:
