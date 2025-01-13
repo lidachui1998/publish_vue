@@ -13,6 +13,7 @@ import time
 import socket
 import csv
 from cryptography.fernet import Fernet
+import sys
 
 
 class App:
@@ -20,14 +21,34 @@ class App:
         self.root = root
         self.root.title("Vue项目自动部署工具")
 
-        # 获取工具所在目录的绝对路径
-        self.tool_dir = os.path.dirname(os.path.abspath(__file__))
-        
+        # 获取程序运行目录
+        if getattr(sys, 'frozen', False):
+            # 如果是打包后的 exe
+            self.tool_dir = os.path.dirname(sys.executable)
+        else:
+            # 如果是直接运行 py 文件
+            self.tool_dir = os.path.dirname(os.path.abspath(__file__))
+
         # 设置配置文件路径
-        self.config_file = os.path.join(self.tool_dir, 'config.json')
-        self.history_file = os.path.join(self.tool_dir, 'deployment_history.json')
-        self.log_file = os.path.join(self.tool_dir, 'deployment_log.txt')
+        self.config_file = os.path.join(self.tool_dir, 'config', 'config.json')
+        self.history_file = os.path.join(self.tool_dir, 'config', 'deployment_history.json')
+        self.log_file = os.path.join(self.tool_dir, 'logs', 'deployment_log.txt')
         self.log_dir = os.path.join(self.tool_dir, 'logs')
+
+        # 确保配置目录和日志目录存在
+        try:
+            os.makedirs(os.path.dirname(self.config_file), exist_ok=True)
+            os.makedirs(self.log_dir, exist_ok=True)
+        except Exception as e:
+            messagebox.showerror("错误", f"创建配置目录失败: {str(e)}")
+            raise
+
+        # 验证路径是否有效
+        for path in [self.tool_dir]:
+            if not os.path.exists(path):
+                error_msg = f"无效的路径: {path}"
+                messagebox.showerror("错误", error_msg)
+                raise Exception(error_msg)
 
         # 设置窗口大小和位置
         window_width = 800
@@ -98,34 +119,65 @@ class App:
     def init_files_and_directories(self):
         """初始化必要的文件和目录"""
         try:
-            # 确保配置文件存在
+            # 创建基础目录结构
+            directories = [
+                os.path.dirname(self.config_file),
+                os.path.dirname(self.history_file),
+                self.log_dir
+            ]
+            
+            for directory in directories:
+                if directory and not os.path.exists(directory):
+                    try:
+                        os.makedirs(directory)
+                        self.log(f"创建目录: {directory}", "success")
+                    except Exception as e:
+                        self.log(f"创建目录失败 {directory}: {str(e)}", "error")
+                        raise
+
+            # 初始化配置文件
             if not os.path.exists(self.config_file):
-                default_config = {
-                    'local_project_path': '',
-                    'new_project_name': '',
-                    'server_address': '',
-                    'username': '',
-                    'password': '',
-                    'remote_path': '',
-                    'servers': []
-                }
-                with open(self.config_file, 'w', encoding='utf-8') as f:
-                    json.dump(default_config, f, ensure_ascii=False, indent=2)
-                self.log("创建默认配置文件", "success")
+                try:
+                    default_config = {
+                        'local_project_path': '',
+                        'new_project_name': '',
+                        'server_address': '',
+                        'username': '',
+                        'password': '',
+                        'remote_path': '',
+                        'servers': []
+                    }
+                    with open(self.config_file, 'w', encoding='utf-8') as f:
+                        json.dump(default_config, f, ensure_ascii=False, indent=2)
+                    self.log("创建默认配置文件", "success")
+                except Exception as e:
+                    self.log(f"创建配置文件失败: {str(e)}", "error")
+                    raise
 
-            # 确保部署历史文件存在
+            # 初始化历史文件
             if not os.path.exists(self.history_file):
-                with open(self.history_file, 'w', encoding='utf-8') as f:
-                    json.dump([], f, ensure_ascii=False, indent=2)
-                self.log("创建部署历史文件", "success")
+                try:
+                    with open(self.history_file, 'w', encoding='utf-8') as f:
+                        json.dump([], f, ensure_ascii=False, indent=2)
+                    self.log("创建部署历史文件", "success")
+                except Exception as e:
+                    self.log(f"创建历史文件失败: {str(e)}", "error")
+                    raise
 
-            # 确保日志目录存在
-            if not os.path.exists(self.log_dir):
-                os.makedirs(self.log_dir)
-                self.log("创建日志目录", "success")
+            # 初始化日志文件
+            if not os.path.exists(self.log_file):
+                try:
+                    with open(self.log_file, 'w', encoding='utf-8') as f:
+                        f.write('')
+                    self.log("创建日志文件", "success")
+                except Exception as e:
+                    self.log(f"创建日志文件失败: {str(e)}", "error")
+                    raise
 
         except Exception as e:
-            messagebox.showerror("错误", f"初始化文件和目录失败: {str(e)}")
+            error_msg = f"初始化文件和目录失败: {str(e)}"
+            messagebox.showerror("错误", error_msg)
+            raise Exception(error_msg)
 
     def create_widgets(self):
         # 创建主框架并设置样式
@@ -307,20 +359,38 @@ class App:
         with self.deploy_lock:
             try:
                 start_time = time.time()
-                success = self.deploy()  # 修改为返回布尔值表示部署成功与否
+                # 生成部署时间戳，用于备份文件名和历史记录
+                deployment_timestamp = datetime.now().strftime('%Y-%m-%d_%H:%M:%S')
+                success = self.deploy(deployment_timestamp)  # 传入时间戳
                 end_time = time.time()
 
                 # 记录部署历史
                 deployment_record = {
-                    "timestamp": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                    "timestamp": deployment_timestamp.replace('_', ' '),  # 转换格式以匹配显示需求
                     "duration": end_time - start_time,
                     "status": "success" if success else "failed",
                     "project_name": self.new_project_name.get(),
-                    "server": self.server_address.get()
+                    "server": self.server_address.get(),
+                    "remote_path": self.remote_path.get(),  # 添加远程路径
+                    "backup_path": f"{self.remote_path.get()}/backups/{self.new_project_name.get()}_backup_{deployment_timestamp}"
                 }
 
                 # 保存部署历史
                 self.save_deployment_history(deployment_record)
+                
+                # 保存当前配置
+                self.save_parameters()
+                
+                # 重新加载配置和历史记录
+                self.load_parameters()
+                
+                # 如果部署历史窗口是打开的，安全地刷新它
+                if hasattr(self, 'history_viewer') and self.history_viewer and hasattr(self.history_viewer, 'tree'):
+                    try:
+                        self.history_viewer.load_history()
+                    except tk.TclError:
+                        # 如果窗口已关闭，忽略错误
+                        pass
 
             except Exception as e:
                 self.log(f"部署过程出错: {str(e)}")
@@ -329,7 +399,7 @@ class App:
                 self.is_deploying = False
                 self.deploy_button.config(state="normal")
 
-    def deploy(self):
+    def deploy(self, deployment_timestamp):
         try:
             # 保存当前工作目录
             original_dir = os.getcwd()
@@ -363,7 +433,7 @@ class App:
                     return False
 
                 self.log("开始备份现有项目...")
-                if not self.backup_existing_project(host, username, password, remote_path, new_project_name):
+                if not self.backup_existing_project(host, username, password, remote_path, new_project_name, deployment_timestamp):
                     return False
 
                 self.log("开始在服务器上解压和重命名...")
@@ -521,17 +591,16 @@ class App:
             self.log(f"上传失败: {str(e)}")
             return False
 
-    def backup_existing_project(self, host, username, password, remote_path, project_name):
-        """备份现有项目"""
+    def backup_existing_project(self, host, username, password, remote_path, project_name, deployment_timestamp):
+        """备份现有项目，使用统一的时间戳"""
         try:
             ssh = paramiko.SSHClient()
             ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             ssh.connect(host, username=username, password=password)
             
-            # 使用正斜杠，确保路径格式正确
-            backup_time = datetime.now().strftime("%Y%m%d%H%M%S")
+            # 使用传入的时间戳创建备份
             backup_dir = f"{remote_path}/backups"
-            backup_path = f"{backup_dir}/{project_name}_backup_{backup_time}"
+            backup_path = f"{backup_dir}/{project_name}_backup_{deployment_timestamp}"
             
             # 创建备份命令
             commands = f"""
@@ -920,8 +989,13 @@ echo "部署完成"
 
     def show_deployment_history(self):
         """显示部署历史记录"""
-        history_viewer = DeploymentHistory(self.root, self.fonts, self.colors)
-        history_viewer.show()
+        try:
+            # 修改这行，传入 self 作为 app 参数
+            self.history_viewer = DeploymentHistory(self.root, self.fonts, self.colors, app=self)
+            self.history_viewer.show()
+        except Exception as e:
+            self.log(f"显示部署历史失败: {str(e)}", "error")
+            messagebox.showerror("错误", f"显示部署历史失败: {str(e)}")
 
     def show_server_manager(self):
         """显示服务器管理器"""
@@ -1357,9 +1431,12 @@ class LogViewer:
 
 
 class DeploymentHistory:
-    def __init__(self, parent, fonts, colors):
+    def __init__(self, parent, fonts, colors, app):
         self.dialog = tk.Toplevel(parent)
         self.dialog.title("部署历史")
+        
+        # 保存 app 实例引用
+        self.app = app
         
         # 设置窗口大小和位置
         window_width = 800
@@ -1374,18 +1451,30 @@ class DeploymentHistory:
         self.colors = colors
         self.dialog.configure(bg=self.colors['background'])
         
+        # 保存历史文件路径
+        if getattr(sys, 'frozen', False):
+            self.history_file = os.path.join(os.path.dirname(sys.executable), 'config', 'deployment_history.json')
+        else:
+            self.history_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config', 'deployment_history.json')
+        
         self.create_widgets()
         self.load_history()
 
     def create_widgets(self):
         # 创建表格
-        columns = ('时间', '状态', '耗时', '项目名称', '服务器')
+        columns = ('时间', '状态', '耗时', '项目名称', '服务器', '远程路径')  # 添加远程路径列
         self.tree = ttk.Treeview(self.dialog, columns=columns, show='headings')
         
         # 设置列标题
         for col in columns:
             self.tree.heading(col, text=col)
-            self.tree.column(col, width=120)
+            # 调整列宽
+            if col in ['时间', '远程路径']:
+                self.tree.column(col, width=150)
+            elif col == '耗时':
+                self.tree.column(col, width=80)
+            else:
+                self.tree.column(col, width=120)
         
         self.tree.pack(fill='both', expand=True, padx=10, pady=5)
         
@@ -1432,14 +1521,14 @@ class DeploymentHistory:
         export_btn.pack(side=tk.LEFT, padx=5)
 
     def load_history(self):
+        """加载部署历史"""
         # 清空现有数据
         for item in self.tree.get_children():
             self.tree.delete(item)
             
         try:
-            history_file = 'deployment_history.json'
-            if os.path.exists(history_file):
-                with open(history_file, 'r', encoding='utf-8') as f:
+            if os.path.exists(self.history_file):
+                with open(self.history_file, 'r', encoding='utf-8') as f:
                     history = json.load(f)
                     
                     for record in history:
@@ -1457,23 +1546,164 @@ class DeploymentHistory:
                             status_text,
                             duration,
                             record.get('project_name', '-'),
-                            record.get('server', '-')
+                            record.get('server', '-'),
+                            record.get('remote_path', '-')  # 添加远程路径显示
                         ))
         except Exception as e:
             messagebox.showerror("错误", f"加载部署历史失败: {str(e)}")
 
     def rollback(self):
+        """实现回滚功能"""
         selection = self.tree.selection()
         if not selection:
             messagebox.showwarning("警告", "请先选择要回滚的版本")
             return
             
         item = self.tree.item(selection[0])
-        timestamp = item['values'][0]
+        values = item['values']
+        timestamp = values[0]  # 部署时间
+        project_name = values[3]  # 项目名称
+        server = values[4]  # 服务器地址
         
-        if messagebox.askyesno("确认", f"确定要回滚到 {timestamp} 的版本吗？"):
-            # TODO: 实现回滚逻辑
-            messagebox.showinfo("提示", "回滚功能正在开发中...")
+        # 从历史记录中获取完整信息
+        history_record = self.get_history_record(timestamp, project_name, server)
+        if not history_record:
+            messagebox.showerror("错误", "未找到对应的部署历史记录")
+            return
+            
+        if messagebox.askyesno("确认", f"确定要回滚到 {timestamp} 的版本吗？\n此操作将覆盖当前版本。"):
+            try:
+                self.perform_rollback(history_record)
+            except Exception as e:
+                messagebox.showerror("错误", f"回滚失败: {str(e)}")
+
+    def get_history_record(self, timestamp, project_name, server):
+        """从历史记录文件中获取完整的部署记录"""
+        try:
+            with open(self.app.history_file, 'r', encoding='utf-8') as f:
+                history = json.load(f)
+                for record in history:
+                    if (record['timestamp'] == timestamp and 
+                        record['project_name'] == project_name and 
+                        record['server'] == server):
+                        # 确保记录中包含远程路径
+                        if 'remote_path' not in record:
+                            record['remote_path'] = self.app.remote_path.get()
+                        return record
+        except Exception as e:
+            messagebox.showerror("错误", f"读取历史记录失败: {str(e)}")
+        return None
+
+    def perform_rollback(self, history_record):
+        """执行回滚操作"""
+        try:
+            # 连接服务器
+            ssh = paramiko.SSHClient()
+            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            
+            # 从主应用获取服务器配置
+            config = self.load_server_config(history_record['server'])
+            if not config:
+                raise Exception("未找到服务器配置")
+            
+            # 获取远程路径
+            remote_path = history_record.get('remote_path')
+            if not remote_path:
+                # 如果历史记录中没有远程路径，尝试从当前配置获取
+                remote_path = self.app.remote_path.get()
+                if not remote_path:
+                    raise Exception("无法获取远程路径信息")
+                
+            ssh.connect(
+                config['address'],
+                port=int(config['port']),
+                username=config['username'],
+                password=self.app.decrypt_password(config['password'])
+            )
+            
+            # 构建回滚命令
+            project_path = f"{remote_path}/{history_record['project_name']}"
+            backup_path = history_record['backup_path']
+            
+            # 先检查备份文件是否存在
+            check_command = f"test -d '{backup_path}' && echo 'exists' || echo 'not exists'"
+            stdin, stdout, stderr = ssh.exec_command(check_command)
+            if stdout.read().decode().strip() != 'exists':
+                raise Exception(f"备份文件不存在: {backup_path}")
+            
+            commands = f"""
+# 备份当前版本（以防回滚失败）
+current_backup="{project_path}_rollback_backup_{datetime.now().strftime('%Y-%m-%d_%H:%M:%S')}"
+cp -r "{project_path}" "$current_backup" || {{ echo "备份当前版本失败"; exit 1; }}
+
+# 删除当前版本
+rm -rf "{project_path}" || {{ echo "删除当前版本失败"; exit 1; }}
+
+# 从备份恢复
+cp -r "{backup_path}" "{project_path}" || {{ echo "恢复备份失败"; exit 1; }}
+
+echo "回滚成功"
+"""
+            # 执行命令
+            stdin, stdout, stderr = ssh.exec_command(commands)
+            result = stdout.read().decode().strip()
+            error = stderr.read().decode().strip()
+            
+            if "回滚成功" in result:
+                messagebox.showinfo("成功", "项目已成功回滚到选中版本")
+                # 记录回滚操作到部署历史
+                self.record_rollback(history_record)
+            else:
+                error_msg = error if error else result
+                raise Exception(f"回滚失败: {error_msg}")
+                    
+        except Exception as e:
+            raise Exception(f"回滚过程出错: {str(e)}")
+        finally:
+            if ssh:
+                ssh.close()
+
+    def load_server_config(self, server_address):
+        """从配置文件加载服务器配置"""
+        try:
+            with open(self.app.config_file, 'r', encoding='utf-8') as f:
+                config = json.load(f)
+                for server in config.get('servers', []):
+                    if server['address'] == server_address:
+                        return server
+        except Exception as e:
+            messagebox.showerror("错误", f"加载服务器配置失败: {str(e)}")
+        return None
+
+    def record_rollback(self, original_record):
+        """记录回滚操作到部署历史"""
+        try:
+            rollback_record = {
+                "timestamp": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                "duration": 0,
+                "status": "success",
+                "project_name": original_record['project_name'],
+                "server": original_record['server'],
+                "remote_path": original_record['remote_path'],  # 添加远程路径
+                "operation": "rollback",
+                "rollback_to": original_record['timestamp'],
+                "backup_path": original_record['backup_path']
+            }
+            
+            # 添加到历史记录
+            with open(self.app.history_file, 'r', encoding='utf-8') as f:
+                history = json.load(f)
+            
+            history.insert(0, rollback_record)
+            
+            with open(self.app.history_file, 'w', encoding='utf-8') as f:
+                json.dump(history, f, ensure_ascii=False, indent=2)
+                
+            # 刷新显示
+            self.load_history()
+            
+        except Exception as e:
+            messagebox.showerror("错误", f"记录回滚历史失败: {str(e)}")
 
     def export_history(self):
         """导出部署历史到选择的目录"""
@@ -1494,7 +1724,7 @@ class DeploymentHistory:
             with open(file_path, 'w', encoding='utf-8', newline='') as f:
                 writer = csv.writer(f)
                 # 写入表头
-                columns = ['时间', '状态', '耗时', '项目名称', '服务器']
+                columns = ['时间', '状态', '耗时', '项目名称', '服务器', '远程路径']
                 writer.writerow(columns)
                 
                 # 写入数据
@@ -1533,11 +1763,19 @@ class ServerManager:
         y = (screen_height - window_height) // 2
         self.dialog.geometry(f"{window_width}x{window_height}+{x}+{y}")
         
-        # 保存应用程序引用
+        # 保存应用程序引用和配置文件路径
         self.app = app
+        self.config_file = app.config_file  # 使用App实例的配置文件路径
         self.fonts = fonts
         self.colors = colors
         self.dialog.configure(bg=self.colors['background'])
+        
+        # 设置模态对话框
+        self.dialog.transient(parent_window)
+        self.dialog.grab_set()
+        
+        # 隐藏对话框，等待 show 方法调用
+        self.dialog.withdraw()
         
         # 创建界面元素
         self.create_widgets()
@@ -1546,8 +1784,18 @@ class ServerManager:
         self.load_servers()
         
         # 绑定双击事件
-        self.server_listbox.bind('<Double-Button-1>', self.apply_server_config)
-
+        self.server_listbox.bind('<Double-Button-1>', self.on_double_click)
+        
+        # 确保配置文件存在
+        if not os.path.exists(self.config_file):
+            try:
+                os.makedirs(os.path.dirname(self.config_file), exist_ok=True)
+                config = {'servers': []}
+                with open(self.config_file, 'w', encoding='utf-8') as f:
+                    json.dump(config, f, ensure_ascii=False, indent=2)
+            except Exception as e:
+                messagebox.showerror("错误", f"创建配置文件失败: {str(e)}")
+        
     def create_widgets(self):
         # 创建服务器列表框
         list_frame = tk.Frame(self.dialog, bg=self.colors['surface'])
@@ -1599,9 +1847,8 @@ class ServerManager:
             self.server_listbox.delete(0, tk.END)
             
             # 读取配置文件
-            config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.json')
-            if os.path.exists(config_file):
-                with open(config_file, 'r', encoding='utf-8') as f:
+            if os.path.exists(self.config_file):
+                with open(self.config_file, 'r', encoding='utf-8') as f:
                     config = json.load(f)
                     
                 # 添加服务器到列表
@@ -1609,53 +1856,145 @@ class ServerManager:
                     server_name = server.get('name', '')
                     if server_name:
                         self.server_listbox.insert(tk.END, server_name)
+            else:
+                # 如果配置文件不存在，创建一个新的
+                config = {'servers': []}
+                os.makedirs(os.path.dirname(self.config_file), exist_ok=True)
+                with open(self.config_file, 'w', encoding='utf-8') as f:
+                    json.dump(config, f, ensure_ascii=False, indent=2)
                         
         except Exception as e:
             messagebox.showerror("错误", f"加载服务器列表失败: {str(e)}")
 
+    def on_double_click(self, event):
+        """双击服务器列表项时的处理"""
+        self.apply_server_config()
+
     def apply_server_config(self, event=None):
-        """应用选中的服务器配置到主界面"""
-        selection = self.server_listbox.curselection()
-        if not selection:
-            messagebox.showwarning("警告", "请先选择一个服务器配置")
-            return
-            
+        """应用选中的服务器配置"""
         try:
-            # 读取配置文件
-            config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.json')
-            with open(config_file, 'r', encoding='utf-8') as f:
+            selection = self.server_listbox.curselection()
+            if not selection:
+                messagebox.showwarning("警告", "请先选择一个服务器配置")
+                return
+                
+            server_name = self.server_listbox.get(selection[0])
+            
+            # 使用正确的配置文件路径
+            if not os.path.exists(self.config_file):
+                messagebox.showerror("错误", "配置文件不存在")
+                return
+                
+            # 读取配置
+            with open(self.config_file, 'r', encoding='utf-8') as f:
+                config = json.load(f)
+                
+            # 查找选中的服务器配置
+            selected_server = None
+            for server in config.get('servers', []):
+                if server.get('name') == server_name:
+                    selected_server = server
+                    break
+                    
+            if not selected_server:
+                messagebox.showerror("错误", "未找到选中的服务器配置")
+                return
+                
+            # 更新主窗口的配置
+            self.app.server_address.set(selected_server['address'])
+            self.app.port.set(selected_server['port'])
+            self.app.username.set(selected_server['username'])
+            self.app.password.set(self.app.decrypt_password(selected_server['password']))
+            self.app.remote_path.set(selected_server['remote_path'])
+            
+            messagebox.showinfo("成功", "服务器配置已应用")
+            self.dialog.destroy()  # 关闭服务器管理器窗口
+            
+        except Exception as e:
+            self.app.log(f"应用服务器配置失败: {str(e)}", "error")
+            messagebox.showerror("错误", f"应用服务器配置失败: {str(e)}")
+
+    def test_connection(self, event=None):
+        """测试服务器连接"""
+        try:
+            selection = self.server_listbox.curselection()
+            if not selection:
+                messagebox.showwarning("警告", "请先选择一个服务器配置")
+                return
+
+            server_name = self.server_listbox.get(selection[0])
+            
+            # 读取配置
+            with open(self.config_file, 'r', encoding='utf-8') as f:
                 config = json.load(f)
             
-            # 获取选中的服务器配置
-            server_name = self.server_listbox.get(selection[0])
+            # 查找选中的服务器配置
             selected_server = None
-            
             for server in config.get('servers', []):
                 if server.get('name') == server_name:
                     selected_server = server
                     break
             
-            if selected_server:
-                # 使用 self.app 访问主窗口的配置
-                self.app.server_address.set(selected_server.get('address', ''))
-                self.app.port.set(selected_server.get('port', '22'))
-                self.app.username.set(selected_server.get('username', ''))
-                self.app.password.set(self.app.decrypt_password(selected_server['password']))
-                self.app.remote_path.set(selected_server.get('remote_path', ''))
-                
-                messagebox.showinfo("成功", "服务器配置已应用")
-                self.dialog.destroy()
-            else:
+            if not selected_server:
                 messagebox.showerror("错误", "未找到选中的服务器配置")
-                
+                return
+            
+            # 创建并显示测试连接对话框
+            TestConnectionDialog(
+                self.dialog,
+                selected_server['address'],
+                int(selected_server['port']),
+                selected_server['username'],
+                self.app.decrypt_password(selected_server['password'])
+            )
+            
         except Exception as e:
-            messagebox.showerror("错误", f"应用服务器配置失败: {str(e)}")
-            logging.error(f"应用服务器配置失败: {str(e)}", exc_info=True)
+            self.app.log(f"测试连接失败: {str(e)}", "error")
+            messagebox.showerror("错误", f"测试连接失败: {str(e)}")
 
-    def show(self):
-        self.dialog.transient(self.dialog.master)
-        self.dialog.grab_set()
-        self.dialog.wait_window()
+    def create_widgets(self):
+        # 创建服务器列表框
+        list_frame = tk.Frame(self.dialog, bg=self.colors['surface'])
+        list_frame.pack(fill='both', expand=True, padx=10, pady=5)
+        
+        self.server_listbox = tk.Listbox(
+            list_frame,
+            font=self.fonts['body'],
+            selectmode=tk.SINGLE,
+            relief='solid',
+            bd=1
+        )
+        self.server_listbox.pack(side=tk.LEFT, fill='both', expand=True)
+        
+        # 添加滚动条
+        scrollbar = ttk.Scrollbar(list_frame, orient=tk.VERTICAL, command=self.server_listbox.yview)
+        scrollbar.pack(side=tk.RIGHT, fill='y')
+        self.server_listbox.config(yscrollcommand=scrollbar.set)
+        
+        # 创建按钮区域
+        button_frame = tk.Frame(self.dialog, bg=self.colors['background'])
+        button_frame.pack(fill='x', padx=10, pady=5)
+        
+        # 添加按钮
+        buttons = [
+            ("添加服务器", self.add_server, self.colors['primary']),
+            ("编辑服务器", self.edit_server, self.colors['primary']),
+            ("删除服务器", self.delete_server, self.colors['error']),
+            ("测试连接", self.test_connection, self.colors['warning']),
+            ("应用选中配置", self.apply_server_config, self.colors['success'])
+        ]
+        
+        for text, command, color in buttons:
+            btn = tk.Button(
+                button_frame,
+                text=text,
+                command=command,
+                font=self.fonts['button'],
+                bg=color,
+                fg='white',
+                cursor='hand2'
+            )
+            btn.pack(side=tk.LEFT, padx=5)
 
     def add_server(self):
         """添加新服务器配置"""
@@ -1666,8 +2005,7 @@ class ServerManager:
             
             if result:  # 只有当用户点击确定时才继续
                 # 读取现有配置
-                config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.json')
-                with open(config_file, 'r', encoding='utf-8') as f:
+                with open(self.config_file, 'r', encoding='utf-8') as f:
                     config = json.load(f)
                 
                 # 确保存在 servers 数组
@@ -1693,155 +2031,166 @@ class ServerManager:
                 config['servers'].append(server_config)
                 
                 # 保存配置
-                with open(config_file, 'w', encoding='utf-8') as f:
+                with open(self.config_file, 'w', encoding='utf-8') as f:
                     json.dump(config, f, ensure_ascii=False, indent=2)
                 
                 # 刷新列表
                 self.load_servers()
                 messagebox.showinfo("成功", "服务器配置已添加")
                 
+        except FileNotFoundError:
+            # 如果配置文件不存在，创建一个新的配置文件
+            try:
+                config = {'servers': []}
+                os.makedirs(os.path.dirname(self.config_file), exist_ok=True)
+                with open(self.config_file, 'w', encoding='utf-8') as f:
+                    json.dump(config, f, ensure_ascii=False, indent=2)
+                self.add_server()  # 重试添加服务器
+            except Exception as e:
+                messagebox.showerror("错误", f"创建配置文件失败: {str(e)}")
         except Exception as e:
             messagebox.showerror("错误", f"添加服务器配置失败: {str(e)}")
 
     def edit_server(self):
         """编辑选中的服务器配置"""
-        selection = self.server_listbox.curselection()
-        if not selection:
-            messagebox.showwarning("警告", "请先选择要编辑的服务器配置")
-            return
-        
         try:
-            # 读取配置文件
-            config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.json')
-            with open(config_file, 'r', encoding='utf-8') as f:
-                config = json.load(f)
-            
-            # 获取选中的服务器配置
-            server_name = self.server_listbox.get(selection[0])
-            selected_server = None
-            server_index = -1
-            
-            for i, server in enumerate(config.get('servers', [])):
-                if server.get('name') == server_name:
-                    selected_server = server
-                    server_index = i
-                    break
-            
-            if selected_server:
-                # 解密密码
-                selected_server['password'] = self.app.decrypt_password(selected_server['password'])
+            selection = self.server_listbox.curselection()
+            if not selection:
+                messagebox.showwarning("警告", "请先选择一个服务器配置")
+                return
                 
-                # 打开编辑对话框并等待结果
-                dialog = ServerConfigDialog(self.dialog, self.fonts, self.colors, selected_server)
-                result = dialog.show()  # 等待对话框关闭并获取结果
+            server_name = self.server_listbox.get(selection[0])
+            
+            # 使用正确的配置文件路径
+            if not os.path.exists(self.config_file):
+                messagebox.showerror("错误", "配置文件不存在")
+                return
                 
-                if result:  # 只有当用户点击确定时才继续
-                    # 更新配置
-                    new_config = {
-                        'name': result['name'],
-                        'address': result['address'],
-                        'port': result['port'],
-                        'username': result['username'],
-                        'password': self.app.encrypt_password(result['password']),
-                        'remote_path': result['remote_path']
-                    }
-                    
-                    # 检查是否与其他配置重名
-                    for i, server in enumerate(config['servers']):
-                        if i != server_index and server['name'] == new_config['name']:
-                            messagebox.showerror("错误", "已存在同名的服务器配置")
-                            return
-                    
-                    config['servers'][server_index] = new_config
-                    
-                    # 保存配置
-                    with open(config_file, 'w', encoding='utf-8') as f:
-                        json.dump(config, f, ensure_ascii=False, indent=2)
-                    
-                    # 刷新列表
-                    self.load_servers()
-                    messagebox.showinfo("成功", "服务器配置已更新")
-                    
-        except Exception as e:
-            messagebox.showerror("错误", f"编辑服务器配置失败: {str(e)}")
-
-    def delete_server(self):
-        """删除选中的服务器配置"""
-        selection = self.server_listbox.curselection()
-        if not selection:
-            messagebox.showwarning("警告", "请先选择要删除的服务器配置")
-            return
-        
-        if not messagebox.askyesno("确认", "确定要删除选中的服务器配置吗？"):
-            return
-        
-        try:
-            # 读取配置文件
-            config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.json')
-            with open(config_file, 'r', encoding='utf-8') as f:
+            # 读取配置
+            with open(self.config_file, 'r', encoding='utf-8') as f:
                 config = json.load(f)
-            
-            # 获取选中的服务器名称
-            server_name = self.server_listbox.get(selection[0])
-            
-            # 删除配置
-            config['servers'] = [s for s in config.get('servers', []) if s.get('name') != server_name]
-            
-            # 保存配置
-            with open(config_file, 'w', encoding='utf-8') as f:
-                json.dump(config, f, ensure_ascii=False, indent=2)
-            
-            # 刷新列表
-            self.load_servers()
-            messagebox.showinfo("成功", "服务器配置已删除")
-            
-        except Exception as e:
-            messagebox.showerror("错误", f"删除服务器配置失败: {str(e)}")
-
-    def test_connection(self):
-        """测试选中服务器的连接"""
-        selection = self.server_listbox.curselection()
-        if not selection:
-            messagebox.showwarning("警告", "请先选择要测试的服务器配置")
-            return
-        
-        try:
-            # 读取配置文件
-            config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.json')
-            with open(config_file, 'r', encoding='utf-8') as f:
-                config = json.load(f)
-            
-            # 获取选中的服务器配置
-            server_name = self.server_listbox.get(selection[0])
+                
+            # 查找选中的服务器配置
             selected_server = None
-            
             for server in config.get('servers', []):
                 if server.get('name') == server_name:
                     selected_server = server
                     break
+                    
+            if not selected_server:
+                messagebox.showerror("错误", "未找到选中的服务器配置")
+                return
+                
+            # 解密密码
+            selected_server['password'] = self.app.decrypt_password(selected_server['password'])
             
-            if selected_server:
-                # 创建并显示测试连接对话框
-                TestConnectionDialog(
-                    self.dialog,
-                    selected_server['address'],
-                    selected_server['port'],
-                    selected_server['username'],
-                    self.app.decrypt_password(selected_server['password'])
-                )
+            # 创建编辑对话框
+            dialog = ServerConfigDialog(
+                self.dialog, 
+                self.fonts, 
+                self.colors,
+                edit_mode=True,
+                initial_data=selected_server
+            )
+            
+            result = dialog.show()
+            
+            if result:  # 只有当用户点击确定时才继续
+                # 更新服务器配置
+                for i, server in enumerate(config['servers']):
+                    if server.get('name') == server_name:
+                        config['servers'][i] = {
+                            'name': result['name'],
+                            'address': result['address'],
+                            'port': result['port'],
+                            'username': result['username'],
+                            'password': self.app.encrypt_password(result['password']),
+                            'remote_path': result['remote_path']
+                        }
+                        break
+                
+                # 保存配置
+                with open(self.config_file, 'w', encoding='utf-8') as f:
+                    json.dump(config, f, ensure_ascii=False, indent=2)
+                
+                # 刷新列表
+                self.load_servers()
+                messagebox.showinfo("成功", "服务器配置已更新")
                 
         except Exception as e:
-            messagebox.showerror("错误", f"测试连接失败: {str(e)}")
+            self.app.log(f"编辑服务器配置失败: {str(e)}", "error")
+            messagebox.showerror("错误", f"编辑服务器配置失败: {str(e)}")
+
+    def delete_server(self):
+        """删除选中的服务器配置"""
+        try:
+            selection = self.server_listbox.curselection()
+            if not selection:
+                messagebox.showwarning("警告", "请先选择一个服务器配置")
+                return
+                
+            server_name = self.server_listbox.get(selection[0])
+            
+            # 确认删除
+            if not messagebox.askyesno("确认", f"确定要删除服务器配置 '{server_name}' 吗？"):
+                return
+                
+            # 使用正确的配置文件路径
+            if not os.path.exists(self.config_file):
+                messagebox.showerror("错误", "配置文件不存在")
+                return
+                
+            # 读取配置
+            with open(self.config_file, 'r', encoding='utf-8') as f:
+                config = json.load(f)
+                
+            # 查找并删除选中的服务器配置
+            servers = config.get('servers', [])
+            config['servers'] = [s for s in servers if s.get('name') != server_name]
+            
+            # 保存配置
+            with open(self.config_file, 'w', encoding='utf-8') as f:
+                json.dump(config, f, ensure_ascii=False, indent=2)
+            
+            # 刷新列表
+            self.load_servers()
+            
+            messagebox.showinfo("成功", f"服务器配置 '{server_name}' 已删除")
+            
+        except Exception as e:
+            self.app.log(f"删除服务器配置失败: {str(e)}", "error")
+            messagebox.showerror("错误", f"删除服务器配置失败: {str(e)}")
+
+    def show(self):
+        """显示服务器管理器对话框"""
+        try:
+            # 显示对话框
+            self.dialog.deiconify()
+            
+            # 等待对话框关闭
+            self.dialog.wait_window()
+            
+        except Exception as e:
+            self.app.log(f"显示服务器管理器失败: {str(e)}", "error")
+            messagebox.showerror("错误", f"显示服务器管理器失败: {str(e)}")
+
+    def hide(self):
+        """隐藏服务器管理器对话框"""
+        self.dialog.withdraw()
+
+    def destroy(self):
+        """销毁服务器管理器对话框"""
+        self.dialog.destroy()
 
 
 class ServerConfigDialog:
-    def __init__(self, parent, fonts, colors, server_config=None):
+    def __init__(self, parent, fonts, colors, edit_mode=False, initial_data=None):
         self.dialog = tk.Toplevel(parent)
-        self.dialog.title("服务器配置" if not server_config else "编辑服务器")
+        self.dialog.title("编辑服务器配置" if edit_mode else "添加服务器配置")
         
         # 设置窗口大小和位置
         window_width = 400
-        window_height = 350
+        window_height = 300
         screen_width = self.dialog.winfo_screenwidth()
         screen_height = self.dialog.winfo_screenheight()
         x = (screen_width - window_width) // 2
@@ -1850,180 +2199,120 @@ class ServerConfigDialog:
         
         self.fonts = fonts
         self.colors = colors
-        self.dialog.configure(bg=self.colors['background'])
+        self.edit_mode = edit_mode
+        self.initial_data = initial_data or {}
         self.result = None
-        
-        # 创建输入变量
-        self.name = tk.StringVar(value=server_config.get('name', '') if server_config else '')
-        self.address = tk.StringVar(value=server_config.get('address', '') if server_config else '')
-        self.port = tk.StringVar(value=server_config.get('port', '22') if server_config else '22')
-        self.username = tk.StringVar(value=server_config.get('username', '') if server_config else '')
-        self.password = tk.StringVar(value=server_config.get('password', '') if server_config else '')
-        self.remote_path = tk.StringVar(value=server_config.get('remote_path', '') if server_config else '')
         
         self.create_widgets()
         
+        # 如果是编辑模式，填充现有数据
+        if edit_mode and initial_data:
+            self.name_var.set(initial_data.get('name', ''))
+            self.address_var.set(initial_data.get('address', ''))
+            self.port_var.set(initial_data.get('port', '22'))
+            self.username_var.set(initial_data.get('username', ''))
+            self.password_var.set(initial_data.get('password', ''))
+            self.remote_path_var.set(initial_data.get('remote_path', ''))
+
     def create_widgets(self):
-        # 创建输入框架
-        input_frame = tk.Frame(self.dialog, bg=self.colors['surface'])
-        input_frame.pack(fill='both', expand=True, padx=20, pady=10)
+        # 创建输入变量
+        self.name_var = tk.StringVar()
+        self.address_var = tk.StringVar()
+        self.port_var = tk.StringVar(value="22")
+        self.username_var = tk.StringVar()
+        self.password_var = tk.StringVar()
+        self.remote_path_var = tk.StringVar()
         
-        # 创建输入字段
+        # 创建输入框
         fields = [
-            ("服务器名称", self.name),
-            ("服务器地址", self.address),
-            ("端口号", self.port),
-            ("用户名", self.username),
-            ("密码", self.password, "*"),
+            ("服务器名称", self.name_var),
+            ("服务器地址", self.address_var),
+            ("端口号", self.port_var),
+            ("用户名", self.username_var),
+            ("密码", self.password_var, "*"),
+            ("远程路径", self.remote_path_var)
         ]
         
         for i, field in enumerate(fields):
             label = tk.Label(
-                input_frame,
+                self.dialog,
                 text=field[0],
                 font=self.fonts['body'],
                 bg=self.colors['surface']
             )
-            label.grid(row=i, column=0, sticky='e', padx=5, pady=5)
+            label.grid(row=i, column=0, padx=5, pady=5, sticky="e")
             
+            show = field[2] if len(field) > 2 else None
             entry = tk.Entry(
-                input_frame,
+                self.dialog,
                 textvariable=field[1],
                 font=self.fonts['body'],
-                show=field[2] if len(field) > 2 else None
+                show=show
             )
-            entry.grid(row=i, column=1, sticky='ew', padx=5, pady=5)
+            entry.grid(row=i, column=1, padx=5, pady=5, sticky="ew")
         
-        # 添加远程路径选择
-        remote_path_frame = tk.Frame(input_frame, bg=self.colors['surface'])
-        remote_path_frame.grid(row=len(fields), column=0, columnspan=2, sticky='ew', padx=5, pady=5)
+        # 按钮区域
+        button_frame = tk.Frame(self.dialog, bg=self.colors['surface'])
+        button_frame.grid(row=len(fields), column=0, columnspan=2, pady=10)
         
-        tk.Label(
-            remote_path_frame,
-            text="远程路径",
-            font=self.fonts['body'],
-            bg=self.colors['surface']
-        ).pack(side=tk.LEFT, padx=5)
-        
-        tk.Entry(
-            remote_path_frame,
-            textvariable=self.remote_path,
-            font=self.fonts['body'],
-            width=30
-        ).pack(side=tk.LEFT, padx=5)
-        
-        tk.Button(
-            remote_path_frame,
-            text="选择目录",
-            command=self.browse_remote_directory,
-            font=self.fonts['button'],
-            bg=self.colors['primary'],
-            fg='white'
-        ).pack(side=tk.LEFT, padx=5)
-        
-        # 创建按钮区域
-        button_frame = tk.Frame(self.dialog, bg=self.colors['background'])
-        button_frame.pack(fill='x', padx=20, pady=10)
-        
-        # 确定按钮
         tk.Button(
             button_frame,
             text="确定",
-            command=self.save,
+            command=self.on_ok,
             font=self.fonts['button'],
             bg=self.colors['success'],
             fg='white'
         ).pack(side=tk.LEFT, padx=5)
         
-        # 取消按钮
         tk.Button(
             button_frame,
             text="取消",
-            command=self.dialog.destroy,
+            command=self.on_cancel,
             font=self.fonts['button'],
             bg=self.colors['secondary'],
             fg='white'
         ).pack(side=tk.LEFT, padx=5)
-        
-    def save(self):
-        """保存配置"""
+
+    def on_ok(self):
         # 验证输入
         if not all([
-            self.name.get(),
-            self.address.get(),
-            self.port.get(),
-            self.username.get(),
-            self.password.get(),
-            self.remote_path.get()
+            self.name_var.get(),
+            self.address_var.get(),
+            self.port_var.get(),
+            self.username_var.get(),
+            self.password_var.get(),
+            self.remote_path_var.get()
         ]):
-            messagebox.showerror("错误", "所有字段都必须填写!")
+            messagebox.showerror("错误", "所有字段都必须填写")
             return
             
         try:
-            port = int(self.port.get())
+            port = int(self.port_var.get())
             if port <= 0 or port > 65535:
-                messagebox.showerror("错误", "端口号必须在1-65535之间!")
+                messagebox.showerror("错误", "端口号必须在1-65535之间")
                 return
         except ValueError:
-            messagebox.showerror("错误", "端口号必须是有效的数字!")
+            messagebox.showerror("错误", "端口号必须是有效的数字")
             return
             
-        # 保存结果
         self.result = {
-            'name': self.name.get(),
-            'address': self.address.get(),
-            'port': self.port.get(),
-            'username': self.username.get(),
-            'password': self.password.get(),
-            'remote_path': self.remote_path.get()
+            'name': self.name_var.get(),
+            'address': self.address_var.get(),
+            'port': self.port_var.get(),
+            'username': self.username_var.get(),
+            'password': self.password_var.get(),
+            'remote_path': self.remote_path_var.get()
         }
-        
+        self.dialog.destroy()
+
+    def on_cancel(self):
         self.dialog.destroy()
 
     def show(self):
-        """显示对话框并等待用户操作"""
         self.dialog.transient(self.dialog.master)
         self.dialog.grab_set()
         self.dialog.wait_window()
         return self.result
-
-    def browse_remote_directory(self):
-        """浏览远程目录"""
-        # 验证服务器连接信息
-        if not all([self.address.get(), self.username.get(), self.password.get()]):
-            messagebox.showerror("错误", "请先填写服务器地址、用户名和密码!")
-            return
-            
-        try:
-            # 创建SSH连接
-            ssh = paramiko.SSHClient()
-            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            ssh.connect(
-                self.address.get(),
-                port=int(self.port.get()),
-                username=self.username.get(),
-                password=self.password.get(),
-                timeout=5
-            )
-            
-            # 获取当前选择的远程路径
-            current_remote_path = self.remote_path.get()
-            
-            # 创建目录选择对话框
-            dialog = RemoteDirectoryDialog(self.dialog, ssh, current_remote_path)
-            selected_path = dialog.show()
-            
-            if selected_path:
-                self.remote_path.set(selected_path)
-                
-            ssh.close()
-            
-        except socket.timeout:
-            messagebox.showerror("错误", "连接超时，请检查服务器地址是否正确!")
-        except paramiko.ssh_exception.AuthenticationException:
-            messagebox.showerror("错误", "认证失败，请检查用户名和密码!")
-        except Exception as e:
-            messagebox.showerror("错误", f"连接服务器失败: {str(e)}")
 
 
 class TestConnectionDialog:
